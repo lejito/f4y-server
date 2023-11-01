@@ -1,7 +1,11 @@
-require("dotenv").config();
-const utils = require("../../utils");
+const utils = require('../../utils');
 
 module.exports = (requiredParams) => {
+  /**
+   * @param {import('express').Request} req
+   * @param {import('express').Response} res
+   * @param {import('express').NextFunction} next
+   **/
   return (req, res, next) => {
     const missingParams = [];
     const invalidParams = [];

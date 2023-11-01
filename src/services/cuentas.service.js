@@ -1,4 +1,3 @@
-const { where } = require("sequelize");
 const Cuenta = require("../models/Cuenta");
 
 module.exports = {
@@ -28,7 +27,7 @@ module.exports = {
     return cuentaCreada;
   },
 
-  async buscar(tipoIdentificacion, numeroIdentificacion) {
+  async buscarPorIdentificacion(tipoIdentificacion, numeroIdentificacion) {
     const cuentaEncontrada = await Cuenta.findOne({
       where: {
         tipoIdentificacion,
@@ -39,7 +38,7 @@ module.exports = {
     return cuentaEncontrada;
   },
 
-  async buscar(correo) {
+  async buscarPorCorreo(correo) {
     const cuentaEncontrada = await Cuenta.findOne({
       where: { correo },
     });

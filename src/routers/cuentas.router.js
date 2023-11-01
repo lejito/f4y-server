@@ -1,12 +1,20 @@
-require("dotenv").config();
 const express = require("express");
 const cuentasRouter = express.Router();
 const cuentasController = require("../controllers/cuentas.controller");
 const validatorMiddleware = require("../middlewares/validator.middleware");
+const authMiddleware = require("../middlewares/auth.middleware");
 const utils = require("../../utils");
 
-const TIPO_IDENTIFICACION = utils.createParam("tipoIdentificacion", "string", false);
-const NUMERO_IDENTIFICACION = utils.createParam("numeroIdentificacion", "string", false);
+const TIPO_IDENTIFICACION = utils.createParam(
+  "tipoIdentificacion",
+  "string",
+  false
+);
+const NUMERO_IDENTIFICACION = utils.createParam(
+  "numeroIdentificacion",
+  "string",
+  false
+);
 const PRIMER_NOMBRE = utils.createParam("primerNombre", "string", false);
 const SEGUNDO_NOMBRE = utils.createParam("segundoNombre", "string", true);
 const PRIMER_APELLIDO = utils.createParam("primerApellido", "string", false);
@@ -31,6 +39,18 @@ cuentasRouter.post(
     CLAVE,
   ]),
   _cuentasController.crear
+);
+
+cuentasRouter.post(
+  "/iniciar-sesion",
+  validatorMiddleware([TIPO_IDENTIFICACION, NUMERO_IDENTIFICACION, CLAVE]),
+  _cuentasController.iniciarsesion
+);
+
+cuentasRouter.post(
+  "/cerrar-sesion",
+  authMiddleware,
+  _cuentasController.cerrarSesion
 );
 
 module.exports = cuentasRouter;

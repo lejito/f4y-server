@@ -6,4 +6,9 @@ module.exports = {
     const hash = await bcrypt.hash(clave, salt);
     return hash;
   },
+
+  async verificarClave(claveTexto, claveEncriptada) {
+    const claveCorrecta = await bcrypt.compare(claveTexto, claveEncriptada);
+    return claveCorrecta;
+  },
 };
