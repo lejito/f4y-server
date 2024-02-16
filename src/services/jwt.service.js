@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 module.exports = {
   crearToken(idCuenta) {
     const token = jwt.sign({ idCuenta }, process.env.SECRETJWT, {
-      expiresIn: "24h",
+      expiresIn: "1h",
     });
     return token;
   },

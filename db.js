@@ -1,7 +1,7 @@
-"use strict"
-const pg = require('pg');
-const { Sequelize } = require('sequelize');
-require('dotenv').config();
+"use strict";
+const pg = require("pg");
+const { Sequelize } = require("sequelize");
+require("dotenv").config();
 
 const sequelize = new Sequelize({
   host: process.env.DBHOST,
@@ -9,20 +9,20 @@ const sequelize = new Sequelize({
   username: process.env.DBUSER,
   password: process.env.DBPASSWORD,
   database: process.env.DBNAME,
-  dialect: 'postgres',
+  dialect: "postgres",
   dialectModule: pg,
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false,
+    },
+  },
   logging: false,
   pool: {
     max: 10,
     min: 0,
-    idle: 10000
+    idle: 10000,
   },
-  dialectOptions: {
-    ssl: {
-      require: true,
-      rejectUnauthorized: false
-    }
-  }
 });
 
 module.exports = sequelize;
