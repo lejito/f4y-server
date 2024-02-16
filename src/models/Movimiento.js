@@ -2,8 +2,8 @@ const { DataTypes } = require("sequelize");
 const sequelize = require("../../db");
 const Cuenta = require("./Cuenta");
 
-const RegistroActividad = sequelize.define(
-  "RegistroActividad",
+const Movimiento = sequelize.define(
+  "Movimiento",
   {
     id: {
       type: DataTypes.INTEGER,
@@ -21,10 +21,13 @@ const RegistroActividad = sequelize.define(
       },
       field: "cuenta",
     },
-    accion: {
-      type: DataTypes.STRING(50),
+    monto: {
+      type: DataTypes.DECIMAL(16, 2),
       allowNull: false,
-      field: "accion",
+      validate: {
+        min: 1,
+      },
+      field: "monto",
     },
     fecha: {
       type: DataTypes.DATE,
@@ -34,9 +37,9 @@ const RegistroActividad = sequelize.define(
     },
   },
   {
-    tableName: "registros_actividad",
+    tableName: "movimientos",
     timestamps: false, // Desactiva las marcas de tiempo automáticas (createdAt, updatedAt)
   }
 );
 
-module.exports = RegistroActividad;
+module.exports = Movimiento;

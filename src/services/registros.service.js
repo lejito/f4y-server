@@ -6,7 +6,6 @@ module.exports = {
       cuenta: idCuenta,
       accion,
     });
-
     return registroActividad;
   },
 };

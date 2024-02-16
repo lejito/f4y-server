@@ -1,5 +1,5 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('../../db');
+const { DataTypes } = require("sequelize");
+const sequelize = require("../../db");
 
 const Cuenta = sequelize.define(
   "Cuenta",
@@ -57,20 +57,17 @@ const Cuenta = sequelize.define(
     },
     clave: {
       type: DataTypes.STRING(76),
-      allowNull: true,
+      allowNull: false,
       field: "clave",
     },
     saldo: {
       type: DataTypes.DECIMAL(16, 2),
       allowNull: false,
       defaultValue: 0,
+      validate: {
+        min: 0,
+      },
       field: "saldo",
-    },
-    saldoOculto: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-      defaultValue: false,
-      field: "saldo_oculto",
     },
     bloqueada: {
       type: DataTypes.BOOLEAN,
