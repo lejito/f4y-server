@@ -12,7 +12,9 @@ class CuentasController {
    * @param {import('express').Response} res
    **/
   async crear(req, res) {
-    try {
+    // <1>
+    try { 
+      //<2>
       const {
         tipoIdentificacion,
         numeroIdentificacion,
@@ -30,8 +32,10 @@ class CuentasController {
         numeroIdentificacion
       );
       const cuentaExistente2 = await cuentasService.buscarPorCorreo(correo);
-
+        //<2>
+        //<3>
       if (!cuentaExistente1 && !cuentaExistente2) {
+        //<4>
         const cuenta = await cuentasService.crear(
           tipoIdentificacion,
           numeroIdentificacion,
@@ -46,7 +50,7 @@ class CuentasController {
 
         cuenta.clave = undefined;
         delete cuenta.clave;
-
+        
         return res.status(200).json(
           utils.successResponse(
             "Cuenta creada correctamente. Ya puedes iniciar sesión.",
@@ -55,7 +59,11 @@ class CuentasController {
             }
           )
         );
-      } else {
+        //<4>
+      }
+      //<3>
+       
+      else {
         return res
           .status(200)
           .json(
@@ -65,7 +73,9 @@ class CuentasController {
             )
           );
       }
-    } catch (error) {
+    } 
+    // <1>
+    catch (error) {
       return res
         .status(500)
         .json(
@@ -82,23 +92,29 @@ class CuentasController {
    * @param {import('express').Response} res
    **/
   async iniciarsesion(req, res) {
+    //<1>
     try {
+      //<2>
       const { tipoIdentificacion, numeroIdentificacion, clave } = req.body;
 
       const cuenta = await cuentasService.buscarPorIdentificacion(
         tipoIdentificacion,
         numeroIdentificacion
       );
-
+        //<2>
+        //<3>
       if (cuenta) {
+        //<4>
         const claveCorrecta = await bcryptService.verificarClave(
           clave,
           cuenta.clave
         );
-
+        //<4>
+        //<5>
         if (claveCorrecta) {
+          //<6>
           const token = jwtService.crearToken(cuenta.id);
-
+       
           try {
             await registrosService.crear(cuenta.id, "Iniciar sesión");
           } catch (error) {}
@@ -108,12 +124,17 @@ class CuentasController {
             .json(
               utils.successResponse("Sesión iniciada correctamente.", { token })
             );
-        } else {
+          //<6>
+        } 
+        //<5>
+        else {
           return res
             .status(200)
             .json(utils.errorResponse("La clave no es válida.", null));
         }
-      } else {
+      } 
+      //<3>
+      else {
         return res
           .status(200)
           .json(
@@ -123,7 +144,9 @@ class CuentasController {
             )
           );
       }
-    } catch (error) {
+    }
+    //<1> 
+    catch (error) {
       return res
         .status(500)
         .json(
@@ -140,7 +163,9 @@ class CuentasController {
    * @param {import('express').Response} res
    **/
   async cerrarSesion(req, res) {
+    //<1>
     try {
+      //<2>
       const token = req.headers.authorization;
 
       const { idCuenta } = jwtService.verificarToken(token);
@@ -152,7 +177,10 @@ class CuentasController {
       return res
         .status(200)
         .json(utils.successResponse("Sesión cerrada correctamente.", null));
-    } catch (error) {
+        //<2>
+    } 
+    //<1>
+    catch (error) {
       return res
         .status(500)
         .json(
