@@ -494,7 +494,9 @@ class CuentasController {
    * @param {import('express').Response} res
    **/
   async actualizarNombre(req, res) {
+    //<1>
     try {
+      //<2>
       const { primerNombre, segundoNombre, primerApellido, segundoApellido } =
         req.body;
 
@@ -509,8 +511,10 @@ class CuentasController {
         primerApellido,
         segundoApellido
       );
-
+      //<2>
+      //<3>
       if (cuentaActualizada) {
+        //<4>
         try {
           await registrosService.crear(idCuenta, "Actualizar nombre");
         } catch (error) {}
@@ -520,7 +524,10 @@ class CuentasController {
             cuentaActualizada: true,
           })
         );
-      } else {
+        //<4>
+      } 
+      //<3>
+      else {
         return res
           .status(200)
           .json(
@@ -530,7 +537,9 @@ class CuentasController {
             )
           );
       }
-    } catch (error) {
+    } 
+    //<1>
+    catch (error) {
       return res
         .status(500)
         .json(
@@ -547,7 +556,9 @@ class CuentasController {
    * @param {import('express').Response} res
    **/
   async actualizarFechaNacimiento(req, res) {
+    //<1>
     try {
+      //<2>
       const { fechaNacimiento } = req.body;
 
       const token = req.headers.authorization;
@@ -558,8 +569,10 @@ class CuentasController {
         idCuenta,
         fechaNacimiento
       );
-
+        //<2>
+        //<3>
       if (cuentaActualizada) {
+        //<4>
         try {
           await registrosService.crear(
             idCuenta,
@@ -575,7 +588,10 @@ class CuentasController {
             }
           )
         );
-      } else {
+        //<4>
+      } 
+      //<3>
+      else {
         return res
           .status(200)
           .json(
@@ -585,7 +601,9 @@ class CuentasController {
             )
           );
       }
-    } catch (error) {
+    } 
+    //<1>
+    catch (error) {
       return res
         .status(500)
         .json(
@@ -602,7 +620,9 @@ class CuentasController {
    * @param {import('express').Response} res
    **/
   async actualizarCorreo(req, res) {
+    //<1>
     try {
+      //<2>
       const { correo } = req.body;
 
       const token = req.headers.authorization;
@@ -613,8 +633,10 @@ class CuentasController {
         idCuenta,
         correo
       );
-
+        //<2>
+        //<3>
       if (cuentaActualizada) {
+        //<4>
         try {
           await registrosService.crear(
             idCuenta,
@@ -630,7 +652,10 @@ class CuentasController {
             }
           )
         );
-      } else {
+        //<4>
+      } 
+      //<3>
+      else {
         return res
           .status(200)
           .json(
@@ -640,7 +665,10 @@ class CuentasController {
             )
           );
       }
-    } catch (error) {
+    } 
+    
+    //<1>
+    catch (error) {
       return res
         .status(500)
         .json(
@@ -657,7 +685,9 @@ class CuentasController {
    * @param {import('express').Response} res
    **/
   async actualizarClave(req, res) {
+    //<1>
     try {
+      //<2>
       const { claveActual, clave } = req.body;
 
       const token = req.headers.authorization;
@@ -665,20 +695,26 @@ class CuentasController {
       const { idCuenta } = jwtService.verificarToken(token);
 
       const cuenta = await cuentasService.buscarPorId(idCuenta);
-
+      //<2>
+      //<3>
       if (cuenta) {
+        //<4>
         const claveCorrecta = await bcryptService.verificarClave(
           claveActual,
           cuenta.clave
         );
-
+          //<4>
+          //<5>
         if (claveCorrecta) {
+          //<6>
           const cuentaActualizada = await cuentasService.actualizarClave(
             idCuenta,
             await bcryptService.encriptarClave(clave)
           );
-
+            //<6>
+            //<7>
           if (cuentaActualizada) {
+            //<8>
             try {
               await registrosService.crear(idCuenta, "Actualizar contraseña");
             } catch (error) {}
@@ -688,19 +724,26 @@ class CuentasController {
                 cuentaActualizada: true,
               })
             );
-          } else {
+            //<8>
+          }
+          //<7>
+          else {
             return res
               .status(200)
               .json(
                 utils.errorResponse("No se actualizó la contraseña.", null)
               );
           }
-        } else {
+        } 
+          //<5>
+        else {
           return res
             .status(200)
             .json(utils.errorResponse("La clave actual no es correcta.", null));
         }
-      } else {
+      } 
+      //<3>
+      else {
         return res
           .status(200)
           .json(
@@ -710,7 +753,9 @@ class CuentasController {
             )
           );
       }
-    } catch (error) {
+    } 
+    //<1>
+    catch (error) {
       return res
         .status(500)
         .json(
@@ -727,20 +772,27 @@ class CuentasController {
    * @param {import('express').Response} res
    **/
   async obtenerSaldo(req, res) {
+    //<1>
     try {
+      //<2>
       const token = req.headers.authorization;
 
       const { idCuenta } = jwtService.verificarToken(token);
 
       const cuenta = await cuentasService.buscarPorId(idCuenta);
-
+      //<2>
+      //<3>
       if (cuenta) {
+        //<4>
         return res.status(200).json(
           utils.successResponse("Saldo obtenido correctamente.", {
             saldo: parseFloat(cuenta.saldo),
           })
         );
-      } else {
+        //<4>
+      } 
+      //<3>
+      else {
         return res
           .status(200)
           .json(
@@ -750,7 +802,9 @@ class CuentasController {
             )
           );
       }
-    } catch (error) {
+    }
+    //<1>
+    catch (error) {
       return res
         .status(500)
         .json(
