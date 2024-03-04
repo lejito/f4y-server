@@ -16,11 +16,14 @@ class BolsillosController {
    **/
   async obtener(req, res) {
     try {
+      //<1>
       const token = req.headers.authorization;
       const { idCuenta } = jwtService.verificarToken(token);
       const cuenta = await cuentasService.buscarPorId(idCuenta);
-
+      //<1>
+      //<2>
       if (cuenta) {
+        //<3>
         const bolsillos = (await bolsillosService.obtener(cuenta.id)).map(
           (bolsillo) => {
             bolsillo.saldo = parseFloat(bolsillo.saldo);
@@ -37,7 +40,11 @@ class BolsillosController {
               { bolsillos }
             )
           );
-      } else {
+        //<3>
+      } 
+      //<2>
+      else {
+        //<4>
         return res
           .status(200)
           .json(
@@ -46,6 +53,7 @@ class BolsillosController {
               null
             )
           );
+        //<4>
       }
     } catch (error) {
       return res
@@ -65,20 +73,26 @@ class BolsillosController {
    **/
   async crear(req, res) {
     try {
+      //<1>
       const { nombre, saldoObjetivo } = req.body;
 
       const token = req.headers.authorization;
       const { idCuenta } = jwtService.verificarToken(token);
       const cuenta = await cuentasService.buscarPorId(idCuenta);
+      //<1>
 
+      //<2>
       if (cuenta) {
+        //<3>
         const bolsillo = await bolsillosService.crear(
           cuenta.id,
           nombre,
           saldoObjetivo
         );
-
+        //<3>
+        //<5>
         if (bolsillo) {
+          //<6>
           try {
             await registrosService.crear(idCuenta, "Crear bolsillo");
           } catch (error) {}
@@ -90,12 +104,20 @@ class BolsillosController {
               bolsillo,
             })
           );
-        } else {
+          //<6>
+        } 
+        //<5>
+        else {
+          //<7>
           return res
             .status(200)
             .json(utils.errorResponse("No se creó el bolsillo.", null));
+          //<7>
         }
-      } else {
+      } 
+      //<2>
+        else {
+          //<4>
         return res
           .status(200)
           .json(
@@ -104,6 +126,7 @@ class BolsillosController {
               null
             )
           );
+          //<4>
       }
     } catch (error) {
       return res
@@ -123,11 +146,15 @@ class BolsillosController {
    **/
   async obtenerMovimientos(req, res) {
     try {
+      //<1>
       const token = req.headers.authorization;
       const { idCuenta } = jwtService.verificarToken(token);
       const cuenta = await cuentasService.buscarPorId(idCuenta);
+      //<1>
 
+      //<2>
       if (cuenta) {
+      //<3>
         const { id } = req.body;
         const movimientos = await bolsillosService.obtenerMovimientos(id);
         return res
@@ -138,7 +165,11 @@ class BolsillosController {
               { movimientos }
             )
           );
-      } else {
+      //<3>
+      } 
+      //<2>
+      else {
+      //<4>
         return res
           .status(200)
           .json(
@@ -147,6 +178,7 @@ class BolsillosController {
               null
             )
           );
+      //<4>
       }
     } catch (error) {
       return res
@@ -166,21 +198,28 @@ class BolsillosController {
    **/
   async actualizar(req, res) {
     try {
+      //<1>
       const { id, nombre, saldoObjetivo } = req.body;
 
       const token = req.headers.authorization;
       const { idCuenta } = jwtService.verificarToken(token);
       const cuenta = await cuentasService.buscarPorId(idCuenta);
+      //<1>
 
+      //<2>
       if (cuenta) {
+        //<3>
         const bolsilloActualizado = await bolsillosService.actualizar(
           id,
           cuenta.id,
           nombre,
           saldoObjetivo
         );
-
+        //<3>
+        
+        //<5>
         if (bolsilloActualizado) {
+          //<6>
           try {
             await registrosService.crear(idCuenta, "Actualizar bolsillo");
           } catch (error) {}
@@ -190,7 +229,11 @@ class BolsillosController {
               bolsilloActualizado: true,
             })
           );
-        } else {
+          //<6>
+        } 
+        //<5>
+        else {
+          //<7>
           return res
             .status(200)
             .json(
@@ -199,8 +242,12 @@ class BolsillosController {
                 null
               )
             );
+          //<7>
         }
-      } else {
+      } 
+      //<2>
+      else {
+        //<4>
         return res
           .status(200)
           .json(
@@ -209,6 +256,7 @@ class BolsillosController {
               null
             )
           );
+          //<4>
       }
     } catch (error) {
       return res
@@ -228,19 +276,26 @@ class BolsillosController {
    **/
   async eliminar(req, res) {
     try {
+      //<1>
       const { id } = req.body;
 
       const token = req.headers.authorization;
       const { idCuenta } = jwtService.verificarToken(token);
       const cuenta = await cuentasService.buscarPorId(idCuenta);
+      //<1>
 
+      //<2>
       if (cuenta) {
+        //<3>
         const bolsilloEliminado = await bolsillosService.eliminar(
           id,
           cuenta.id
         );
+        //<3>
 
+        //<5>
         if (bolsilloEliminado) {
+          //<6>
           try {
             await registrosService.crear(idCuenta, "Eliminar bolsillo");
           } catch (error) {}
@@ -250,7 +305,11 @@ class BolsillosController {
               bolsilloEliminado: true,
             })
           );
-        } else {
+          //<6>
+        } 
+        //<5>
+        else {
+          //<7>
           return res
             .status(200)
             .json(
@@ -259,8 +318,12 @@ class BolsillosController {
                 null
               )
             );
+          //<7> 
         }
-      } else {
+      }
+      //<2> 
+      else {
+        //<4>
         return res
           .status(200)
           .json(
@@ -269,6 +332,7 @@ class BolsillosController {
               null
             )
           );
+        //<4>
       }
     } catch (error) {
       return res
@@ -288,28 +352,41 @@ class BolsillosController {
    **/
   async cargar(req, res) {
     try {
+      //<1>
       const token = req.headers.authorization;
       const { idCuenta } = jwtService.verificarToken(token);
       const cuenta = await cuentasService.buscarPorId(idCuenta);
-
+      //<1>
+      
+      //<2>
       if (cuenta) {
+        //<3>
         const { id, monto } = req.body;
+        //<3>
 
+        //<5>
         if (cuenta.saldo >= monto) {
+          //<6>
           const movimiento = await movimientosService.crearMovimiento(
             cuenta.id,
             monto
           );
-
+          //<6>
+          
+          //<8>
           if (movimiento) {
+            //<9>
             const transferenciaExterna =
               await movimientosService.crearTransferenciaBolsillo(
                 movimiento.id,
                 id,
                 true
               );
+            //<9>
 
+            //<11>
             if (transferenciaExterna) {
+              //<12>
               await cuentasService.restarSaldo(cuenta.id, monto);
               await bolsillosService.sumarSaldo(id, monto);
 
@@ -323,14 +400,22 @@ class BolsillosController {
                   },
                 })
               );
-            } else {
+              //<12>
+            } 
+            //<11>
+            else {
+              //<13>
               return res
                 .status(200)
                 .json(
                   utils.errorResponse("No se pudo crear la transacción.", null)
                 );
+              //<13>
             }
-          } else {
+          }
+          //<8>
+          else {
+            //<10>
             return res
               .status(200)
               .json(
@@ -339,8 +424,12 @@ class BolsillosController {
                   null
                 )
               );
+            //<10>
           }
-        } else {
+        } 
+        //<5>
+        else {
+          //<7>
           return res
             .status(200)
             .json(
@@ -349,8 +438,12 @@ class BolsillosController {
                 null
               )
             );
+          //<7>
         }
-      } else {
+      } 
+      //<2>
+      else {
+        //<4>
         return res
           .status(200)
           .json(
@@ -359,6 +452,7 @@ class BolsillosController {
               null
             )
           );
+        //<4>
       }
     } catch (error) {
       return res
@@ -378,31 +472,45 @@ class BolsillosController {
    **/
   async descargar(req, res) {
     try {
+      //<1>
       const token = req.headers.authorization;
       const { idCuenta } = jwtService.verificarToken(token);
       const cuenta = await cuentasService.buscarPorId(idCuenta);
+      //<1>
 
+      //<2>
       if (cuenta) {
+        //<3>
         const { id, monto } = req.body;
 
         const bolsillo = await bolsillosService.buscarPorId(id);
+        //<3>
 
+        //<5>
         if (bolsillo) {
+          //<6>
           if (bolsillo.saldo >= monto) {
+            //<8>
             const movimiento = await movimientosService.crearMovimiento(
               cuenta.id,
               monto
             );
+            //<8>
 
+            //<10>
             if (movimiento) {
+              //<11>
               const transferenciaExterna =
                 await movimientosService.crearTransferenciaBolsillo(
                   movimiento.id,
                   id,
                   false
                 );
+              //<11>
 
+              //<13>
               if (transferenciaExterna) {
+                //<14>
                 await bolsillosService.restarSaldo(id, monto);
                 await cuentasService.sumarSaldo(cuenta.id, monto);
 
@@ -419,7 +527,11 @@ class BolsillosController {
                     }
                   )
                 );
-              } else {
+                //<14>
+              } 
+              //<13>
+              else {
+                //<15>
                 return res
                   .status(200)
                   .json(
@@ -428,8 +540,12 @@ class BolsillosController {
                       null
                     )
                   );
+                //<15>
               }
-            } else {
+            } 
+            //<10>
+            else {
+              //<12>
               return res
                 .status(200)
                 .json(
@@ -438,8 +554,12 @@ class BolsillosController {
                     null
                   )
                 );
+              //<12>
             }
-          } else {
+          } 
+          //<6>
+          else {
+            //<9>
             return res
               .status(200)
               .json(
@@ -448,8 +568,12 @@ class BolsillosController {
                   null
                 )
               );
+            //<9>
           }
-        } else {
+        } 
+        //<5>
+        else {
+          //<7>
           return res
             .status(200)
             .json(
@@ -458,8 +582,12 @@ class BolsillosController {
                 null
               )
             );
+          //<7>
         }
-      } else {
+      } 
+      //<2>
+      else {
+        //<4>
         return res
           .status(200)
           .json(
@@ -468,6 +596,7 @@ class BolsillosController {
               null
             )
           );
+        //<4>
       }
     } catch (error) {
       return res

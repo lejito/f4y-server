@@ -6,7 +6,7 @@ const cdtsService = require("../services/cdts.service");
 const movimientosService = require("../services/movimientos.service");
 
 class CDTsController {
-  constructor() {}
+  constructor() { }
 
   /**
    * @param {import('express').Request} req
@@ -14,11 +14,15 @@ class CDTsController {
    **/
   async calcular(req, res) {
     try {
+      //<1>
       const token = req.headers.authorization;
       const { idCuenta } = jwtService.verificarToken(token);
       const cuenta = await cuentasService.buscarPorId(idCuenta);
+      //<1>
 
+      //<2>
       if (cuenta) {
+        //<3>
         const { inversion, duracion, fechaInicio } = req.body;
 
         const cdt = cdtsService.calcularNuevo(inversion, duracion, fechaInicio);
@@ -28,7 +32,11 @@ class CDTsController {
             cdt,
           })
         );
-      } else {
+        //<3>
+      }
+      //<2>
+      else {
+        //<4>
         return res
           .status(200)
           .json(
@@ -37,6 +45,7 @@ class CDTsController {
               null
             )
           );
+        //<4>
       }
     } catch (error) {
       return res
@@ -56,11 +65,15 @@ class CDTsController {
    **/
   async obtenerTodos(req, res) {
     try {
+      //<1>
       const token = req.headers.authorization;
       const { idCuenta } = jwtService.verificarToken(token);
       const cuenta = await cuentasService.buscarPorId(idCuenta);
+      //<1>
 
+      //<2>
       if (cuenta) {
+        //<3>
         const cdts = (await cdtsService.obtenerTodos(idCuenta)).map((cdt) => {
           cdt.inversion = parseFloat(cdt.inversion);
           cdt.interes = parseFloat(cdt.interes);
@@ -74,7 +87,11 @@ class CDTsController {
             cdts,
           })
         );
-      } else {
+        //<3>
+      }
+      //<2>
+      else {
+        //<4> 
         return res
           .status(200)
           .json(
@@ -83,6 +100,7 @@ class CDTsController {
               null
             )
           );
+        //<4>
       }
     } catch (error) {
       return res
@@ -102,16 +120,23 @@ class CDTsController {
    **/
   async obtener(req, res) {
     try {
+      //<1>
       const token = req.headers.authorization;
       const { idCuenta } = jwtService.verificarToken(token);
       const cuenta = await cuentasService.buscarPorId(idCuenta);
+      //<1>
 
+      //<2>
       if (cuenta) {
+        //<3>
         const { id } = req.body;
 
         const cdt = await cdtsService.obtener(id, cuenta.id);
+        //<3>
 
+        //<5>
         if (cdt) {
+          //<6>
           cdt.inversion = parseFloat(cdt.inversion);
           cdt.interes = parseFloat(cdt.interes);
           cdt.retencion = parseFloat(cdt.retencion);
@@ -122,12 +147,20 @@ class CDTsController {
               cdt: { ...cdt.dataValues, ...calculos },
             })
           );
-        } else {
+          //<6>
+        }
+        //<5>
+        else {
+          //<7>
           return res
             .status(200)
             .json(utils.errorResponse("No se encontró el CDT.", null));
+          //<7>
         }
-      } else {
+      }
+      //<2>
+      else {
+        //<4>
         return res
           .status(200)
           .json(
@@ -136,6 +169,7 @@ class CDTsController {
               null
             )
           );
+        //<4>
       }
     } catch (error) {
       return res
@@ -155,11 +189,15 @@ class CDTsController {
    **/
   async crear(req, res) {
     try {
+      //<1>
       const token = req.headers.authorization;
       const { idCuenta } = jwtService.verificarToken(token);
       const cuenta = await cuentasService.buscarPorId(idCuenta);
-
+      //<1>
+      
+      //<2>
       if (cuenta) {
+        //<3>
         const { inversion, duracion, fechaInicio } = req.body;
         const { interes, retencion, fechaFin } = cdtsService.calcularNuevo(
           inversion,
@@ -176,8 +214,11 @@ class CDTsController {
           fechaInicio,
           fechaFin
         );
+        //<3>
 
+        //<5>
         if (cdt) {
+          //<6>
           cdt.inversion = parseFloat(cdt.inversion);
           cdt.interes = parseFloat(cdt.interes);
           cdt.retencion = parseFloat(cdt.retencion);
@@ -207,12 +248,20 @@ class CDTsController {
               },
             })
           );
-        } else {
+          //<6>
+        } 
+        //<5>
+        else {
+          //<7>
           return res
             .status(200)
             .json(utils.errorResponse("No se creó el CDT.", null));
+          //<7>
         }
-      } else {
+      }
+      //<2>
+      else {
+        //<4>
         return res
           .status(200)
           .json(
@@ -221,6 +270,7 @@ class CDTsController {
               null
             )
           );
+        //<4>
       }
     } catch (error) {
       return res
@@ -240,27 +290,42 @@ class CDTsController {
    **/
   async liquidar(req, res) {
     try {
+      //<1>
       const token = req.headers.authorization;
       const { idCuenta } = jwtService.verificarToken(token);
       const cuenta = await cuentasService.buscarPorId(idCuenta);
+      //<1>
 
+      //<2>
       if (cuenta) {
+        //<3>
         const { id } = req.body;
 
         const cdt = await cdtsService.obtener(id, cuenta.id);
+        //<3>
 
+        //<5>
         if (cdt) {
+          //<6>
           cdt.inversion = parseFloat(cdt.inversion);
           cdt.interes = parseFloat(cdt.interes);
           cdt.retencion = parseFloat(cdt.retencion);
           const calculos = cdtsService.calcularExistente(cdt);
+          //<6>
+
+          //<8>
           if (
             !(calculos.estado == "liquidado" || calculos.estado == "cancelado")
           ) {
+            //<9>
             if (calculos.estado == "finalizado") {
+              //<11>
               const cdtLiquidado = await cdtsService.liquidar(id, cuenta.id);
+              //<11>
 
+              //<13> 
               if (cdtLiquidado) {
+                //<14>
                 const movimiento = await movimientosService.crearMovimiento(
                   cuenta.id,
                   calculos.montoDevolucion
@@ -287,12 +352,20 @@ class CDTsController {
                     },
                   })
                 );
-              } else {
+                //<14>
+              } 
+              //<13>
+              else {
+                //<15>
                 return res
                   .status(200)
                   .json(utils.errorResponse("No se liquidó el CDT.", null));
+                //<15>
               }
-            } else {
+            } 
+            //<9>
+            else {
+              //<12>
               return res
                 .status(200)
                 .json(
@@ -301,8 +374,12 @@ class CDTsController {
                     null
                   )
                 );
+              //<12>
             }
-          } else {
+          } 
+          //<8>
+          else {
+            //<10>
             return res
               .status(200)
               .json(
@@ -311,15 +388,23 @@ class CDTsController {
                   null
                 )
               );
+            //<10>
           }
-        } else {
+        } 
+        //<5>
+        else {
+          //<7>
           return res
             .status(200)
             .json(
               utils.errorResponse("No se encontró el CDT a liquidar.", null)
             );
+          //<7>
         }
-      } else {
+      } 
+      //<2>
+      else {
+        //<4>
         return res
           .status(200)
           .json(
@@ -328,6 +413,7 @@ class CDTsController {
               null
             )
           );
+        //<4>
       }
     } catch (error) {
       return res
@@ -347,27 +433,43 @@ class CDTsController {
    **/
   async cancelar(req, res) {
     try {
+      //<1>
       const token = req.headers.authorization;
       const { idCuenta } = jwtService.verificarToken(token);
       const cuenta = await cuentasService.buscarPorId(idCuenta);
+      //<1>
 
+      //<2>
       if (cuenta) {
+        //<3>
         const { id } = req.body;
 
         const cdt = await cdtsService.obtener(id, cuenta.id);
+        //<3>
 
+        //<5>
         if (cdt) {
+          //<6>
           cdt.inversion = parseFloat(cdt.inversion);
           cdt.interes = parseFloat(cdt.interes);
           cdt.retencion = parseFloat(cdt.retencion);
           const calculos = cdtsService.calcularExistente(cdt);
+          //<6>
+
+          //<8>
           if (
             !(calculos.estado == "liquidado" || calculos.estado == "cancelado")
           ) {
+            //<9>
             if (calculos.estado == "apertura") {
+              //<11>
               const cdtCancelado = await cdtsService.cancelar(id, cuenta.id);
 
+              //<11>
+
+              //<13>
               if (cdtCancelado) {
+                //<14>
                 const movimiento = await movimientosService.crearMovimiento(
                   cuenta.id,
                   cdt.inversion
@@ -391,12 +493,21 @@ class CDTsController {
                     },
                   })
                 );
-              } else {
+                //<14>
+              } 
+              //<13>
+              else {
+                //<15>
                 return res
                   .status(200)
                   .json(utils.errorResponse("No se cancelar el CDT.", null));
+                
+                //<15>
               }
-            } else {
+            } 
+            //<9>
+            else {
+              //<12>
               return res
                 .status(200)
                 .json(
@@ -405,8 +516,12 @@ class CDTsController {
                     null
                   )
                 );
+              //<12>
             }
-          } else {
+          } 
+          //<8>
+          else {
+            //<10>
             return res
               .status(200)
               .json(
@@ -415,15 +530,23 @@ class CDTsController {
                   null
                 )
               );
+            //<10>
           }
-        } else {
+        } 
+        //<5>
+        else {
+          //<7>
           return res
             .status(200)
             .json(
               utils.errorResponse("No se encontró el CDT a cancelar.", null)
             );
+          //<7>
         }
-      } else {
+      } 
+      //<2>
+      else {
+        //<4>
         return res
           .status(200)
           .json(
@@ -432,6 +555,7 @@ class CDTsController {
               null
             )
           );
+        //<4>
       }
     } catch (error) {
       return res
