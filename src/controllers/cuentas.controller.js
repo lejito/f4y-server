@@ -109,6 +109,7 @@ class CuentasController {
         tipoIdentificacion,
         numeroIdentificacion
       );
+
       //<3>
       //<4>
       if (cuenta) {
