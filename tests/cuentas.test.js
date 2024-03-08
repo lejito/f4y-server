@@ -1,6 +1,7 @@
 const superTest = require("supertest");
-const app = require("../app");
-
+const { app, server } = require("../index");
+const { Sequelize } = require("sequelize");
+const sequelize = require("../db");
 const api = superTest(app);
 
 describe("Pruebas para el endpoint de inicio de sesión", () => {
@@ -49,15 +50,20 @@ describe("Pruebas para el endpoint de inicio de sesión", () => {
       .expect(200)
       .expect("Content-Type", /json/)
       .expect((res) => {
+        expect(res.body.type).toHaveProperty("success");
         expect(res.body).toHaveProperty("message");
         expect(res.body.message).toBe("Sesión iniciada correctamente.");
-        expect(res.body.type).toHaveProperty("success");
         expect(res.body.body).toHaveProperty("token");
       });
   });
   test("Iniciar sesión sin pasar datos ", async () => {
     const response = await api
       .post("/api/cuentas/iniciar-sesion")
+      .send({
+        tipoIdentificacion: "",
+        numeroIdentificacion: "",
+        clave: "",
+      })
       .expect(500)
       .expect("Content-Type", /json/)
       .expect((res) => {
@@ -68,4 +74,11 @@ describe("Pruebas para el endpoint de inicio de sesión", () => {
         );
       });
   });
+  test("Iniciar sesión sin pasar objeto en la request", async () => {
+    const response = await api.post("/api/cuentas/iniciar-sesion").expect(400);
+  });
+});
+afterAll(() => {
+  sequelize.close();
+  server.close();
 });
