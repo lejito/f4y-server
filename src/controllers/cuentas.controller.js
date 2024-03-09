@@ -105,6 +105,7 @@ class CuentasController {
       const { tipoIdentificacion, numeroIdentificacion, clave } = req.body;
       //<2>
       //<3>
+
       const cuenta = await cuentasService.buscarPorIdentificacion(
         tipoIdentificacion,
         numeroIdentificacion
