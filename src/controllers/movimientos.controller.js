@@ -6,23 +6,28 @@ const cuentasService = require("../services/cuentas.service");
 const movimientosService = require("../services/movimientos.service");
 
 class MovimientosController {
-  constructor() {}
+  constructor() { }
 
   /**
    * @param {import('express').Request} req
    * @param {import('express').Response} res
    **/
   async obtenerUltimos(req, res) {
+    //<1>
     try {
-      //<1>
-      const token = req.headers.authorization;
-      const { idCuenta } = jwtService.verificarToken(token);
-      const cuenta = await cuentasService.buscarPorId(idCuenta);
-      //<1>
-
       //<2>
+      const token = req.headers.authorization;
+      //<2>
+      //<3>
+      const { idCuenta } = jwtService.verificarToken(token);
+      //<3>
+      //<4>
+      const cuenta = await cuentasService.buscarPorId(idCuenta);
+      //<4>
+
+      //<5>
       if (cuenta) {
-        //<3>
+        //<7>
         const movimientos = await movimientosService.obtenerUltimos(idCuenta);
         return res
           .status(200)
@@ -32,11 +37,11 @@ class MovimientosController {
               { movimientos }
             )
           );
-        //<3>
-      } 
-      //<2>
+        //<7>
+      }
+      //<5>
       else {
-        //<4>
+        //<6>
         return res
           .status(200)
           .json(
@@ -45,9 +50,12 @@ class MovimientosController {
               null
             )
           );
-        //<4>
+        //<6>
       }
-    } catch (error) {
+    }
+    //<1>
+    catch (error) {
+      //<8>
       return res
         .status(500)
         .json(
@@ -56,6 +64,7 @@ class MovimientosController {
             null
           )
         );
+      //<8>
     }
   }
 
@@ -64,35 +73,43 @@ class MovimientosController {
    * @param {import('express').Response} res
    **/
   async cargarCuenta(req, res) {
+    //<1>
     try {
-      //<1>
-      const secret = req.headers.authorization;
-      //<1>
-
       //<2>
+      const secret = req.headers.authorization;
+      //<2>
+
+      //<3>
       if (secret === process.env.SECRETQUYNE) {
-        //<3>
+        //<5>
         const { entidadOrigen, cuentaOrigen, cuentaDestino, monto } = req.body;
+        //<5>
+        //<6>
         const tipoIdentificacion = cuentaDestino.substring(0, 2);
+        //<6>
+        //<7>
         const numeroIdentificacion = cuentaDestino.substring(2);
+        //<7>
+        //<8>
         const cuenta = await cuentasService.buscarPorIdentificacion(
           tipoIdentificacion,
           numeroIdentificacion
         );
-        //<3>
-        
-        //<5>
+        //<8>
+
+
+        //<9>
         if (cuenta) {
-          //<6>
+          //<11>
           const movimiento = await movimientosService.crearMovimiento(
             cuenta.id,
             monto
           );
-          //<6>
+          //<11>
 
-          //<8>
+          //<12>
           if (movimiento) {
-            //<9>
+            //<14>
             const transferenciaExterna =
               await movimientosService.crearTransferenciaExterna(
                 movimiento.id,
@@ -100,11 +117,11 @@ class MovimientosController {
                 cuentaOrigen,
                 true
               );
-            //<9>
+            //<14>
 
-            //<11>
+            //<15>
             if (transferenciaExterna) {
-              //<12>
+              //<17>
               await cuentasService.sumarSaldo(cuenta.id, monto);
 
               return res.status(200).json(
@@ -117,22 +134,22 @@ class MovimientosController {
                   },
                 })
               );
-              //<12>
-            } 
-            //<11>
+              //<17>
+            }
+            //<15>
             else {
-              //<13>
+              //<16>
               return res
                 .status(200)
                 .json(
                   utils.errorResponse("No se pudo crear la transacción.", null)
                 );
-              //<13>
+              //<16>
             }
-          } 
-          //<8>
+          }
+          //<12>
           else {
-            //<10>
+            //<13>
             return res
               .status(200)
               .json(
@@ -141,12 +158,12 @@ class MovimientosController {
                   null
                 )
               );
-            //<10>
+            //<13>
           }
-        } 
-        //<5>
+        }
+        //<9>
         else {
-          //<7>
+          //<10>
           return res
             .status(200)
             .json(
@@ -155,10 +172,10 @@ class MovimientosController {
                 null
               )
             );
-          //<7>
+          //<10>
         }
-      } 
-      //<2>
+      }
+      //<3>
       else {
         //<4>
         return res
@@ -171,7 +188,10 @@ class MovimientosController {
           );
         //<4>
       }
-    } catch (error) {
+    }
+    //<1>
+    catch (error) {
+      //<18>
       return res
         .status(500)
         .json(
@@ -180,6 +200,7 @@ class MovimientosController {
             null
           )
         );
+      //<18>
     }
   }
 
@@ -188,20 +209,25 @@ class MovimientosController {
    * @param {import('express').Response} res
    **/
   async descargarCuenta(req, res) {
+    //<1>
     try {
-      //<1>
-      const token = req.headers.authorization;
-      const { idCuenta } = jwtService.verificarToken(token);
-      const cuenta = await cuentasService.buscarPorId(idCuenta);
-      //<1>
-
       //<2>
-      if (cuenta) {
-        //<3>
-        const { entidadDestino, cuentaDestino, monto } = req.body;
-        //<3>
+      const token = req.headers.authorization;
+      //<2>
+      //<3>
+      const { idCuenta } = jwtService.verificarToken(token);
+      //<3>
+      //<4>
+      const cuenta = await cuentasService.buscarPorId(idCuenta);
+      //<4>
 
-        //<5>
+      //<5>
+      if (cuenta) {
+        //<7>
+        const { entidadDestino, cuentaDestino, monto } = req.body;
+        //<7>
+
+        //<8>
         if (cuenta.saldo >= monto) {
           // if (entidadDestino == "quyne") {
           //   const { data } = await axios.post(
@@ -228,16 +254,16 @@ class MovimientosController {
           //   }
           // }
 
-          //<6>
+          //<10>
           const movimiento = await movimientosService.crearMovimiento(
             cuenta.id,
             monto
           );
-          //<6>
+          //<10>
 
-          //<8>
+          //<11>
           if (movimiento) {
-            //<9>
+            //<13>
             const transferenciaExterna =
               await movimientosService.crearTransferenciaExterna(
                 movimiento.id,
@@ -245,11 +271,11 @@ class MovimientosController {
                 cuentaDestino,
                 false
               );
-            //<9>
+            //<13>
 
-            //<11>
+            //<14>
             if (transferenciaExterna) {
-              //<12>
+              //<16>
               await cuentasService.restarSaldo(cuenta.id, monto);
 
               return res.status(200).json(
@@ -262,22 +288,22 @@ class MovimientosController {
                   },
                 })
               );
-              //<12>
-            } 
-            //<11>
+              //<16>
+            }
+            //<14>
             else {
-              //<13>
+              //<15>
               return res
                 .status(200)
                 .json(
                   utils.errorResponse("No se pudo crear la transacción.", null)
                 );
-              //<13>
+              //<15>
             }
           }
-          //<8> 
+          //<11> 
           else {
-            //<10>
+            //<12>
             return res
               .status(200)
               .json(
@@ -286,12 +312,12 @@ class MovimientosController {
                   null
                 )
               );
-            //<10>
+            //<12>
           }
-        } 
-        //<5>
+        }
+        //<8>
         else {
-          //<7>
+          //<9>
           return res
             .status(200)
             .json(
@@ -300,12 +326,12 @@ class MovimientosController {
                 null
               )
             );
-          //<7>
+          //<9>
         }
-      } 
-      //<2>
+      }
+      //<5>
       else {
-        //<4>
+        //<6>
         return res
           .status(200)
           .json(
@@ -314,9 +340,12 @@ class MovimientosController {
               null
             )
           );
-        //<4>
+        //<6>
       }
-    } catch (error) {
+    }
+    //<1>
+    catch (error) {
+      //<19>
       return res
         .status(500)
         .json(
@@ -325,6 +354,7 @@ class MovimientosController {
             null
           )
         );
+      //<19>
     }
   }
 }
