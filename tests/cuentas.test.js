@@ -65,7 +65,7 @@ describe("Pruebas para el endpoint de inicio de sesión", () => {
         numeroIdentificacion: "",
         clave: "",
       })
-      .expect(500)
+      .expect(400)
       .expect("Content-Type", /json/)
       .expect((res) => {
         expect(res.body).toHaveProperty("message");

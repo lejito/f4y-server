@@ -34,14 +34,14 @@ describe("Pruebas para el endpoint de carga", () => {
       });
   });
 
-
+  
   test("Cargar sin saldo suficiente", async () => {
 
 
     // Simula una cuenta con saldo insuficiente
     const mockReqBody = {
       id: 5,
-      monto: 2000000 // Monto mayor al saldo de la cuenta
+      monto: 2000000000000000000 // Monto mayor al saldo de la cuenta
     };
 
     // Envía la solicitud al endpoint
@@ -147,14 +147,12 @@ describe("Pruebas para el endpoint de descarga", () => {
       .post("/api/bolsillos/descargar")
       .set("Authorization", token)
       .send(mockReqBody)
-      .expect(500)
+      .expect(200)
       .expect("Content-Type", /json/)
       .expect((res) => {
-        expect(res.body).toHaveProperty("message");
         expect(res.body.type).toBe("error");
-        expect(res.body.message).toBe(
-          "Ha ocurrido un error al intentar realizar la transacción."
-        );
+        expect(res.body).toHaveProperty("message");
+        expect(res.body.message).toBe("El id no corresponden con ningún bolsillo existente.");
       });
   });
 
