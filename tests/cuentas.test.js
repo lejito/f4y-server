@@ -7,15 +7,23 @@ const { crearToken } = require("../src/services/jwt.service");
 
 describe("Pruebas para el endpoint de inicio de sesión", () => {
   test("Con datos incorrectos", async () => {
+
+    // ARRANGE
+
+    const newLocal_1 = {
+      tipoIdentificacion: "CC",
+      numeroIdentificacion: "123456789",
+      clave: "testPassword",
+    };
+
+    // ACT
     const response = await api
       .post("/api/cuentas/iniciar-sesion")
-      .send({
-        tipoIdentificacion: "CC",
-        numeroIdentificacion: "123456789",
-        clave: "testPassword",
-      })
+      .send(newLocal_1)
       .expect(200)
       .expect("Content-Type", /json/)
+    
+    // ASSERT
       .expect((res) => {
         expect(res.body).toHaveProperty("message");
         expect(res.body.message).toBe(
@@ -25,15 +33,23 @@ describe("Pruebas para el endpoint de inicio de sesión", () => {
   });
 
   test("Con tipo y numero de identificacion correcta pero contraseña incorrecta ", async () => {
+
+    // ARRANGE
+
+    const newLocal = {
+      tipoIdentificacion: "CC",
+      numeroIdentificacion: "1001025610",
+      clave: "wrongPassword",
+    };
+
+    // ACT
     const response = await api
       .post("/api/cuentas/iniciar-sesion")
-      .send({
-        tipoIdentificacion: "CC",
-        numeroIdentificacion: "1001025610",
-        clave: "wrongPassword",
-      })
+      .send(newLocal)
       .expect(200)
       .expect("Content-Type", /json/)
+    
+    // ASSERT
       .expect((res) => {
         expect(res.body.type).toBe("error");
         expect(res.body).toHaveProperty("message");
@@ -41,15 +57,23 @@ describe("Pruebas para el endpoint de inicio de sesión", () => {
       });
   });
   test("Con datos correctos ", async () => {
+
+    // ARRANGE
+
+    const newLocal_1 = {
+      tipoIdentificacion: "CC",
+      numeroIdentificacion: "1001025610",
+      clave: "123abcDEF-",
+    };
+
+    // ACT
     const response = await api
       .post("/api/cuentas/iniciar-sesion")
-      .send({
-        tipoIdentificacion: "CC",
-        numeroIdentificacion: "1001025610",
-        clave: "123abcDEF-",
-      })
+      .send(newLocal_1)
       .expect(200)
       .expect("Content-Type", /json/)
+    
+    // ASSERT
       .expect((res) => {
         expect(res.body.type).toBe("success");
         expect(res.body).toHaveProperty("message");
@@ -58,15 +82,22 @@ describe("Pruebas para el endpoint de inicio de sesión", () => {
       });
   });
   test("Sin pasar datos ", async () => {
+    
+    // ARRANGE
+    const newLocal = {
+      tipoIdentificacion: "",
+      numeroIdentificacion: "",
+      clave: "",
+    };
+
+    // ACT
     const response = await api
       .post("/api/cuentas/iniciar-sesion")
-      .send({
-        tipoIdentificacion: "",
-        numeroIdentificacion: "",
-        clave: "",
-      })
+      .send(newLocal)
       .expect(400)
       .expect("Content-Type", /json/)
+
+    // ASSERT
       .expect((res) => {
         expect(res.body).toHaveProperty("message");
         expect(res.body.type).toBe("error");
@@ -76,16 +107,28 @@ describe("Pruebas para el endpoint de inicio de sesión", () => {
       });
   });
   test("Iniciar sesión sin pasar objeto en la request", async () => {
+
+    // ARRANGE
+
+    // ACT
     const response = await api.post("/api/cuentas/iniciar-sesion").expect(400);
+
+    // ASSERT
   });
 });
 
 describe("Pruebas para el endpoint obtener Identificacion", () => {
   test("sin token", async () => {
+
+    // ARRANGE
+
+    // ACT
     const response = await api
       .get("/api/cuentas/obtener-identificacion")
       .expect(401)
       .expect("Content-Type", /json/)
+
+    // ASSERT
       .expect((res) => {
         expect(res.body).toHaveProperty("message");
         expect(res.body.message).toBe(
@@ -95,10 +138,17 @@ describe("Pruebas para el endpoint obtener Identificacion", () => {
   });
 
   test("con token incorrecto", async () => {
+
+    // ARRANGE
+    const newLocal = "Bearer wrongToken";
+
+    // ACT
     const response = await api
       .get("/api/cuentas/obtener-identificacion")
-      .set("Authorization", "Bearer wrongToken")
+      .set("Authorization", newLocal)
       .expect(401)
+
+    // ASSERT
       .expect((res) => {
         expect(res.body).toHaveProperty("message");
         expect(res.body.message).toBe(
@@ -108,11 +158,17 @@ describe("Pruebas para el endpoint obtener Identificacion", () => {
   });
 
   test("con token correcto", async () => {
+
+    // ARRANGE
     const token = crearToken(1);
+
+    // ACT
     const response = await api
       .get("/api/cuentas/obtener-identificacion")
       .set("Authorization", token)
       .expect(200)
+    
+    // ASSERT
       .expect((res) => {
         expect(res.body.type).toBe("success");
 

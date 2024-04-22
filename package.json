@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cross-env NODE_ENV=test jest --verbose ---silent --detectOpenHandles",
+    "test": "cross-env NODE_ENV=test jest --verbose ---silent --detectOpenHandles  --config jest.config.js",
     "test:watch": "npm run test -- --watchAll",
     "test:coverage": "npm run test --  --config jest.config.js --coverage",
     "dev": "cross-env NODE_ENV=development nodemon index.js",

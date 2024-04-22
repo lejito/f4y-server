@@ -7,12 +7,16 @@ const { crearToken } = require("../src/services/jwt.service");
 describe("Pruebas para el endpoint descargar cuenta", () => {
   const token = crearToken(1);
   test("Descargar monto inferior al saldo de la cuenta", async () => {
+
+    // ARRANGE
     // Simula una cuenta con suficiente saldo
     const mockReqBody = {
       entidadDestino: "quyne",
       cuentaDestino: "313427698",
       monto: 70000,
     };
+
+    // ACT
 
     // Envía la solicitud al endpoint
     const response = await api
@@ -21,6 +25,8 @@ describe("Pruebas para el endpoint descargar cuenta", () => {
       .send(mockReqBody)
       .expect(200)
       .expect("Content-Type", /json/)
+
+    // ASSERT
       .expect((res) => {
         expect(res.body.type).toBe("success");
         expect(res.body).toHaveProperty("message");
