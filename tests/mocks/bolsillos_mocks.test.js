@@ -1,70 +1,61 @@
+//Imports
+const { verificarToken } = require("../../src/services/jwt.service");
+const bolsillosService = require("../../src/services/bolsillos.service");
+const movimientosService = require("../../src/services/movimientos.service");
+const cuentasService = require("../../src/services/cuentas.service");
+const superTest = require("supertest");
 
-const {cargar} = require("../../src/controllers/bolsillos.controller");
+const { app, server } = require("../../index");
 
+let { test, describe, expect } = require("@jest/globals");
+
+//Mocks
+jest.mock("../../src/services/cuentas.service");
+jest.mock("../../src/services/jwt.service");
+jest.mock("../../src/services/bolsillos.service");
+jest.mock("../../src/services/movimientos.service");
+jest.mock("../../db");
+
+//Instance of the API
+const api = superTest(app);
+//fixtures and helpers
+
+afterAll(() => {
+  server.close();
+});
 
 describe("Pruebas para el endpoint de carga", () => {
-    test('Debería cargar correctamente', async () => {
-        const req = {
-          headers: {
-            authorization: 'token_de_prueba'
-          },
-          body: {
-            id: 'id_de_prueba',
-            monto: 100
-          }
-        };
-    
-        const res = {
-          status: jest.fn(() => res),
-          json: jest.fn()
-        };
-    
-        // Mock de los servicios
-        const jwtService = {
-          verificarToken: jest.fn(() => ({ idCuenta: 'id_de_prueba' }))
-        };
-    
-        const cuentasService = {
-          buscarPorId: jest.fn(() => ({ id: 'id_de_prueba', saldo: 200 }))
-        };
-    
-        const movimientosService = {
-          crearMovimiento: jest.fn(() => ({ id: 'id_de_prueba' })),
-          crearTransferenciaBolsillo: jest.fn(() => true)
-        };
-    
-        const bolsillosService = {
-          sumarSaldo: jest.fn()
-        };
-    
-        const utils = {
-          successResponse: jest.fn((message, data) => ({ message, data })),
-          errorResponse: jest.fn((message, data) => ({ message, data }))
-        };
-    
-        // Ejecutar la función bajo prueba
-        // await cargar(req, res);
+  test("Debería cargar correctamente", async () => {
+    //ARRANGE
+    const auth = {
+      authorization: "token_de_prueba",
+    };
+    const carga = {
+      id: 1,
+      monto: 100,
+    };
 
-    
-        // Verificar que los métodos de res se hayan llamado correctamente
-        // expect(res.status).toHaveBeenCalled(200);
-        expect(res.json).toHaveBeenCalledWith({
-          message: 'Transacción realizada correctamente.',
-          data: {
-            movimiento: {
-              id: 'id_de_prueba',
-              tipo: 'carga-bolsillo',
-              fecha: expect.any(Date),
-              monto: 100
-            }
-          }
-        });
-    
-        // Verificar llamadas a los servicios
-        expect(jwtService.verificarToken).toHaveBeenCalledWith('token_de_prueba');
-        expect(cuentasService.buscarPorId).toHaveBeenCalledWith('id_de_prueba');
-        expect(movimientosService.crearMovimiento).toHaveBeenCalledWith('id_de_prueba', 100);
-        expect(movimientosService.crearTransferenciaBolsillo).toHaveBeenCalledWith('id_de_prueba', 'id_de_prueba', true);
-        expect(bolsillosService.sumarSaldo).toHaveBeenCalledWith('id_de_prueba', 100);
-      });
+    verificarToken.mockReturnValue({ idCuenta: 1 });
+    cuentasService.buscarPorId.mockResolvedValueOnce({
+      id: 1,
+      saldo: 200,
+    });
+    movimientosService.crearMovimiento.mockResolvedValueOnce({
+      id: 1,
+      monto: 100,
+    });
+    movimientosService.crearTransferenciaBolsillo.mockResolvedValueOnce(true);
+
+    //ACT
+
+    const res = await api.post("/api/bolsillos/cargar").send(carga).set(auth);
+
+    //ASSERT
+
+    expect(res.status).toBe(200);
+    expect(res.body).toHaveProperty("message");
+    expect(res.body.message).toBe("Transacción realizada correctamente.");
+    expect(res.body.type).toBe("success");
+    expect(cuentasService.buscarPorId).toHaveBeenCalledTimes(1);
+  });
 });

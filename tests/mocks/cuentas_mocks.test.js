@@ -4,13 +4,12 @@ const superTest = require("supertest");
 const { app, server } = require("../../index");
 let { test, describe, expect } = require("@jest/globals");
 
-//Instance of the API
-const api = superTest(app);
-
 //Mocks
 jest.mock("../../src/services/cuentas.service");
 jest.mock("../../db");
 
+//Instance of the API
+const api = superTest(app);
 //fixtures and helpers
 
 afterAll(() => {
@@ -236,6 +235,7 @@ describe("Pruebas para crear cuenta", () => {
       );
     });
   });
+
   describe("Con datos ya registrados", () => {
     test("Con correo ya registrado", async () => {
       // ARRANGE
