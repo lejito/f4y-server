@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
   <file path="C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\tests\mocks\cuentas_mocks.test.js">
-    <testCase name="Pruebas para crear cuenta Con datos correctos " duration="240"/>
-    <testCase name="Pruebas para crear cuenta Con datos incorrectos  Sin numero de identificacion" duration="17"/>
-    <testCase name="Pruebas para crear cuenta Con datos incorrectos  Sin numero de identificacion" duration="12"/>
-    <testCase name="Pruebas para crear cuenta Con datos incorrectos  Sin primer nombre" duration="18"/>
-    <testCase name="Pruebas para crear cuenta Con datos incorrectos  Sin primer apellido" duration="16"/>
-    <testCase name="Pruebas para crear cuenta Con datos ya registrados Con correo ya registrado" duration="13"/>
-    <testCase name="Pruebas para crear cuenta Con datos ya registrados Con identificacion ya registrada" duration="15"/>
+    <testCase name="Pruebas para crear cuenta Con datos correctos  Todos los campos completos" duration="245"/>
+    <testCase name="Pruebas para crear cuenta Con datos correctos  Sin segundo nombre ni segundo apellido" duration="16">
+      <failure message="Error: expect(received).toBe(expected) // Object.is equality"><![CDATA[Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: 200
+Received: 400
+    at Object.toBe (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\tests\mocks\cuentas_mocks.test.js:109:29)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)]]></failure>
+    </testCase>
+    <testCase name="Pruebas para crear cuenta Con datos incorrectos Sin numero de identificacion" duration="13"/>
+    <testCase name="Pruebas para crear cuenta Con datos incorrectos Sin numero de identificacion" duration="17"/>
+    <testCase name="Pruebas para crear cuenta Con datos incorrectos Sin primer nombre" duration="20"/>
+    <testCase name="Pruebas para crear cuenta Con datos incorrectos Sin primer apellido" duration="16"/>
+    <testCase name="Pruebas para crear cuenta Con datos ya registrados Con correo ya registrado" duration="16"/>
+    <testCase name="Pruebas para crear cuenta Con datos ya registrados Con identificacion ya registrada" duration="19"/>
   </file>
 </testExecutions>

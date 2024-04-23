@@ -56,36 +56,69 @@ function generateMockCuenta(datosNecesarios) {
 }
 //Tests
 describe("Pruebas para crear cuenta", () => {
-  test("Con datos correctos ", async () => {
-    // ARRANGE
-    const nuevaCuenta = generateMockCuenta({
-      clave: true,
-      correo: true,
-      fechaNacimiento: true,
-      numeroIdentificacion: true,
-      primerApellido: true,
-      primerNombre: true,
-      segundoApellido: true,
-      segundoNombre: true,
-      tipoIdentificacion: true,
+  describe("Con datos correctos ", () => {
+    test("Todos los campos completos", async () => {
+      // ARRANGE
+      const nuevaCuenta = generateMockCuenta({
+        clave: true,
+        correo: true,
+        fechaNacimiento: true,
+        numeroIdentificacion: true,
+        primerApellido: true,
+        primerNombre: true,
+        segundoApellido: true,
+        segundoNombre: true,
+        tipoIdentificacion: true,
+      });
+      setCreateMocks(false, false, nuevaCuenta);
+
+      // ACT
+      let result = await api.post("/api/cuentas/crear").send(nuevaCuenta);
+
+      // ASSERT
+      expect(result.status).toBe(200);
+      expect(cuentasService.crear).toHaveBeenCalledTimes(1);
+      expect(cuentasService.buscarPorIdentificacion).toHaveBeenCalledTimes(1);
+      expect(cuentasService.buscarPorCorreo).toHaveBeenCalledTimes(1);
+      expect(result.body.type).toBe("success");
+      expect(result.body).toHaveProperty("message");
+      expect(result.body.message).toBe(
+        "Cuenta creada correctamente. Ya puedes iniciar sesión."
+      );
     });
-    setCreateMocks(false, false, nuevaCuenta);
 
-    // ACT
-    let result = await api.post("/api/cuentas/crear").send(nuevaCuenta);
+    test("Sin segundo nombre ni segundo apellido", async () => {
+      // ARRANGE
+      const nuevaCuenta = generateMockCuenta({
+        clave: true,
+        correo: true,
+        fechaNacimiento: true,
+        numeroIdentificacion: true,
+        primerApellido: true,
+        primerNombre: true,
+        segundoApellido: false,
+        segundoNombre: false,
+        tipoIdentificacion: true,
+      });
+      setCreateMocks(false, false, nuevaCuenta);
 
-    // ASSERT
-    expect(result.status).toBe(200);
-    expect(cuentasService.crear).toHaveBeenCalledTimes(1);
-    expect(cuentasService.buscarPorIdentificacion).toHaveBeenCalledTimes(1);
-    expect(cuentasService.buscarPorCorreo).toHaveBeenCalledTimes(1);
-    expect(result.body.type).toBe("success");
-    expect(result.body).toHaveProperty("message");
-    expect(result.body.message).toBe(
-      "Cuenta creada correctamente. Ya puedes iniciar sesión."
-    );
+      // ACT
+      let result = await api.post("/api/cuentas/crear").send(nuevaCuenta);
+
+      // ASSERT
+      expect(result.status).toBe(200);
+      expect(cuentasService.crear).toHaveBeenCalledTimes(1);
+      expect(cuentasService.buscarPorIdentificacion).toHaveBeenCalledTimes(1);
+      expect(cuentasService.buscarPorCorreo).toHaveBeenCalledTimes(1);
+      expect(result.body.type).toBe("success");
+      expect(result.body).toHaveProperty("message");
+      expect(result.body.message).toBe(
+        "Cuenta creada correctamente. Ya puedes iniciar sesión."
+      );
+    });
   });
-  describe("Con datos incorrectos ", () => {
+
+  describe("Con datos incorrectos", () => {
     test("Sin numero de identificacion", async () => {
       // ARRANGE
       const nuevaCuenta = generateMockCuenta({
