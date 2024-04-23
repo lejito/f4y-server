@@ -5,8 +5,6 @@ const bcryptService = require("../services/bcrypt.service");
 const jwtService = require("../services/jwt.service");
 
 class CuentasController {
-  constructor() {}
-
   /**
    * @param {import('express').Request} req
    * @param {import('express').Response} res

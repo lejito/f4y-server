@@ -1,60 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\tests\bolsillos.test.js">
-    <testCase name="Pruebas para el endpoint de carga Cargar con saldo suficiente" duration="4090"/>
-    <testCase name="Pruebas para el endpoint de carga Cargar sin saldo suficiente" duration="124"/>
-    <testCase name="Pruebas para el endpoint de carga Cargar con identificación de bolsillo incorrecta" duration="2049"/>
-    <testCase name="Pruebas para el endpoint de descarga Descargar monto inferior al saldo del bolsillo" duration="1617"/>
-    <testCase name="Pruebas para el endpoint de descarga Descargar monto superior al saldo del bolsillo" duration="568"/>
-    <testCase name="Pruebas para el endpoint de descarga Descargar con identificación de bolsillo incorrecta" duration="222"/>
-  </file>
-  <file path="C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\tests\cuentas.test.js">
-    <testCase name="Pruebas para el endpoint de inicio de sesión Con datos incorrectos" duration="5011">
-      <failure message="Error: thrown: &quot;Exceeded timeout of 5000 ms for a test."><![CDATA[Error: thrown: "Exceeded timeout of 5000 ms for a test.
-Add a timeout value to this test to increase the timeout, if this is a long-running test. See https://jestjs.io/docs/api#testname-fn-timeout."
-    at test (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\tests\cuentas.test.js:9:3)
-    at _dispatchDescribe (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\jest-circus\build\index.js:91:26)
-    at describe (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\jest-circus\build\index.js:55:5)
-    at Object.describe (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\tests\cuentas.test.js:8:1)
-    at Runtime._execModule (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\jest-runtime\build\index.js:1439:24)
-    at Runtime._loadModule (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\jest-runtime\build\index.js:1022:12)
-    at Runtime.requireModule (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\jest-runtime\build\index.js:882:12)
-    at jestAdapter (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:77:13)
-    at runTestInternal (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\jest-runner\build\runTest.js:367:16)
-    at runTest (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\jest-runner\build\runTest.js:444:34)]]></failure>
-    </testCase>
-    <testCase name="Pruebas para el endpoint de inicio de sesión Con tipo y numero de identificacion correcta pero contraseña incorrecta " duration="881"/>
-    <testCase name="Pruebas para el endpoint de inicio de sesión Con datos correctos " duration="686"/>
-    <testCase name="Pruebas para el endpoint de inicio de sesión Sin pasar datos " duration="125">
-      <failure message="Error: expected 400 &quot;Bad Request&quot;, got 200 &quot;OK&quot;"><![CDATA[Error: expected 400 "Bad Request", got 200 "OK"
-    at Object.expect (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\tests\cuentas.test.js:68:8)
-    at Promise.then.completed (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\jest-circus\build\utils.js:298:28)
-    at new Promise (<anonymous>)
-    at callAsyncCircusFn (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\jest-circus\build\utils.js:231:10)
-    at _callCircusTest (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\jest-circus\build\run.js:316:40)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at _runTest (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\jest-circus\build\run.js:252:3)
-    at _runTestsForDescribeBlock (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\jest-circus\build\run.js:126:9)
-    at _runTestsForDescribeBlock (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\jest-circus\build\run.js:121:9)
-    at run (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\jest-circus\build\run.js:71:3)
-    at runAndTransformResultsToJestFormat (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
-    at jestAdapter (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
-    at runTestInternal (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\jest-runner\build\runTest.js:367:16)
-    at runTest (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\jest-runner\build\runTest.js:444:34)
-----
-    at Test._assertStatus (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\supertest\lib\test.js:252:14)
-    at C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\supertest\lib\test.js:308:13
-    at Test._assertFunction (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\supertest\lib\test.js:285:13)
-    at Test.assert (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\supertest\lib\test.js:164:23)
-    at Server.localAssert (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\supertest\lib\test.js:120:14)
-    at Object.onceWrapper (node:events:628:28)
-    at Server.emit (node:events:514:28)
-    at emitCloseNT (node:net:2273:8)
-    at processTicksAndRejections (node:internal/process/task_queues:81:21)]]></failure>
-    </testCase>
-    <testCase name="Pruebas para el endpoint de inicio de sesión Iniciar sesión sin pasar objeto en la request" duration="16"/>
-    <testCase name="Pruebas para el endpoint obtener Identificacion sin token" duration="13"/>
-    <testCase name="Pruebas para el endpoint obtener Identificacion con token incorrecto" duration="12"/>
-    <testCase name="Pruebas para el endpoint obtener Identificacion con token correcto" duration="465"/>
+  <file path="C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\tests\mocks\cuentas_mocks.test.js">
+    <testCase name="Pruebas para crear cuenta Con datos correctos " duration="240"/>
+    <testCase name="Pruebas para crear cuenta Con datos incorrectos  Sin numero de identificacion" duration="17"/>
+    <testCase name="Pruebas para crear cuenta Con datos incorrectos  Sin numero de identificacion" duration="12"/>
+    <testCase name="Pruebas para crear cuenta Con datos incorrectos  Sin primer nombre" duration="18"/>
+    <testCase name="Pruebas para crear cuenta Con datos incorrectos  Sin primer apellido" duration="16"/>
+    <testCase name="Pruebas para crear cuenta Con datos ya registrados Con correo ya registrado" duration="13"/>
+    <testCase name="Pruebas para crear cuenta Con datos ya registrados Con identificacion ya registrada" duration="15"/>
   </file>
 </testExecutions>
