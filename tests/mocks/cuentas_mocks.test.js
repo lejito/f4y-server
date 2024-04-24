@@ -1,5 +1,6 @@
 //Imports
 const cuentasService = require("../../src/services/cuentas.service");
+const { verificarToken } = require("../../src/services/jwt.service");
 const superTest = require("supertest");
 const { app, server } = require("../../index");
 let { test, describe, expect } = require("@jest/globals");
@@ -7,10 +8,11 @@ let { test, describe, expect } = require("@jest/globals");
 //Mocks
 jest.mock("../../src/services/cuentas.service");
 jest.mock("../../db");
-
+jest.mock("../../src/services/jwt.service");
+jest.mock("../../src/services/registros.service.js");
 //Instance of the API
 const api = superTest(app);
-//fixtures and helpers
+//functions
 
 afterAll(() => {
   server.close();
@@ -19,9 +21,13 @@ beforeEach(() => {
   cuentasService.buscarPorIdentificacion.mockReset();
   cuentasService.buscarPorCorreo.mockReset();
   cuentasService.crear.mockReset();
+  cuentasService.buscarPorId.mockReset();
+  verificarToken.mockReset();
+  cuentasService.actualizarFechaNacimiento.mockReset();
+  cuentasService.actualizarCorreo.mockReset();
 });
 
-function setCreateMocks(existeIdentificacion, existeCorreo, nuevaCuenta) {
+function setCrearCuentaMocks(existeIdentificacion, existeCorreo, nuevaCuenta) {
   cuentasService.buscarPorIdentificacion.mockResolvedValueOnce(
     existeIdentificacion
   );
@@ -69,7 +75,7 @@ describe("Pruebas para crear cuenta", () => {
         segundoNombre: true,
         tipoIdentificacion: true,
       });
-      setCreateMocks(false, false, nuevaCuenta);
+      setCrearCuentaMocks(false, false, nuevaCuenta);
 
       // ACT
       let result = await api.post("/api/cuentas/crear").send(nuevaCuenta);
@@ -99,7 +105,7 @@ describe("Pruebas para crear cuenta", () => {
         segundoNombre: false,
         tipoIdentificacion: true,
       });
-      setCreateMocks(false, false, nuevaCuenta);
+      setCrearCuentaMocks(false, false, nuevaCuenta);
 
       // ACT
       let result = await api.post("/api/cuentas/crear").send(nuevaCuenta);
@@ -130,7 +136,7 @@ describe("Pruebas para crear cuenta", () => {
         segundoNombre: true,
         tipoIdentificacion: false,
       });
-      setCreateMocks(false, false, nuevaCuenta);
+      setCrearCuentaMocks(false, false, nuevaCuenta);
 
       // ACT
       let result = await api.post("/api/cuentas/crear").send(nuevaCuenta);
@@ -160,7 +166,7 @@ describe("Pruebas para crear cuenta", () => {
         tipoIdentificacion: true,
         numeroIdentificacion: false,
       });
-      setCreateMocks(false, false, nuevaCuenta);
+      setCrearCuentaMocks(false, false, nuevaCuenta);
 
       // ACT
       let result = await api.post("/api/cuentas/crear").send(nuevaCuenta);
@@ -189,7 +195,7 @@ describe("Pruebas para crear cuenta", () => {
         segundoNombre: true,
         tipoIdentificacion: true,
       });
-      setCreateMocks(false, false, nuevaCuenta);
+      setCrearCuentaMocks(false, false, nuevaCuenta);
 
       // ACT
       let result = await api.post("/api/cuentas/crear").send(nuevaCuenta);
@@ -218,7 +224,7 @@ describe("Pruebas para crear cuenta", () => {
         segundoNombre: true,
         tipoIdentificacion: true,
       });
-      setCreateMocks(false, false, nuevaCuenta);
+      setCrearCuentaMocks(false, false, nuevaCuenta);
 
       // ACT
       let result = await api.post("/api/cuentas/crear").send(nuevaCuenta);
@@ -251,7 +257,7 @@ describe("Pruebas para crear cuenta", () => {
         tipoIdentificacion: true,
       });
 
-      setCreateMocks(false, true, nuevaCuenta);
+      setCrearCuentaMocks(false, true, nuevaCuenta);
 
       // ACT
       let result = await api.post("/api/cuentas/crear").send(nuevaCuenta);
@@ -282,7 +288,7 @@ describe("Pruebas para crear cuenta", () => {
         tipoIdentificacion: true,
       });
 
-      setCreateMocks(true, false, nuevaCuenta);
+      setCrearCuentaMocks(true, false, nuevaCuenta);
 
       // ACT
       let result = await api.post("/api/cuentas/crear").send(nuevaCuenta);
@@ -298,5 +304,331 @@ describe("Pruebas para crear cuenta", () => {
         "La identificación y/o el correo ya pertenecen a una cuenta existente."
       );
     });
+  });
+});
+
+describe("Pruebas para obtener nombre", () => {
+  test("Con token con Id correcto", async () => {
+    // ARRANGE
+    verificarToken.mockReturnValue({ idCuenta: 1 });
+    cuentasService.buscarPorId.mockResolvedValueOnce({
+      primerNombre: "Test",
+      primerApellido: "Test",
+    });
+    let auth = { authorization: "Bearer token" };
+
+    // ACT
+    let result = await api.get("/api/cuentas/obtener-nombre").set(auth);
+
+    // ASSERT
+    expect(result.status).toBe(200);
+    expect(verificarToken).toHaveBeenCalledTimes(2);
+    expect(cuentasService.buscarPorId).toHaveBeenCalledTimes(1);
+    expect(result.body.type).toBe("success");
+    expect(result.body.body.cuenta).toStrictEqual({
+      primerNombre: "Test",
+      primerApellido: "Test",
+    });
+  });
+
+  test("Sin token", async () => {
+    // ARRANGE
+
+    // ACT
+    let result = await api.get("/api/cuentas/obtener-nombre");
+
+    // ASSERT
+    expect(result.status).toBe(401);
+  });
+
+  test("Con token con Id incorrecto", async () => {
+    // ARRANGE
+    verificarToken.mockReturnValue({ idCuenta: 0 });
+    cuentasService.buscarPorId.mockResolvedValueOnce(null);
+    let auth = { authorization: "Bearer token" };
+
+    // ACT
+    let result = await api.get("/api/cuentas/obtener-nombre").set(auth);
+
+    // ASSERT
+    expect(result.status).toBe(200);
+    expect(cuentasService.buscarPorId).toHaveBeenCalledTimes(1);
+    expect(verificarToken).toHaveBeenCalledTimes(2);
+    expect(result.body.type).toBe("error");
+    expect(result.body).toHaveProperty("message");
+    expect(result.body.message).toBe(
+      "El id no corresponde a ninguna cuenta existente."
+    );
+  });
+
+  test("Con error durante el proceso", async () => {
+    // ARRANGE
+    verificarToken.mockReturnValue({ idCuenta: 1 });
+    cuentasService.buscarPorId.mockRejectedValueOnce(new Error("Error"));
+    let auth = { authorization: "Bearer token" };
+
+    // ACT
+    let result = await api.get("/api/cuentas/obtener-nombre").set(auth);
+
+    // ASSERT
+    expect(result.status).toBe(500);
+  });
+});
+
+describe("Pruebas para obtener fecha de nacimiento", () => {
+  test("Con token con Id correcto", async () => {
+    // ARRANGE
+    verificarToken.mockReturnValue({ idCuenta: 1 });
+    cuentasService.buscarPorId.mockResolvedValueOnce({
+      fechaNacimiento: "1999-12-12",
+    });
+    let auth = { authorization: "Bearer token" };
+
+    // ACT
+    let result = await api
+      .get("/api/cuentas/obtener-fecha-nacimiento")
+      .set(auth);
+
+    // ASSERT
+    expect(result.status).toBe(200);
+    expect(verificarToken).toHaveBeenCalledTimes(2);
+    expect(cuentasService.buscarPorId).toHaveBeenCalledTimes(1);
+    expect(result.body.type).toBe("success");
+    expect(result.body.body.cuenta).toStrictEqual({
+      fechaNacimiento: "1999-12-12",
+    });
+  });
+
+  test("Sin token", async () => {
+    // ARRANGE
+
+    // ACT
+    let result = await api.get("/api/cuentas/obtener-fecha-nacimiento");
+
+    // ASSERT
+    expect(result.status).toBe(401);
+  });
+
+  test("Con token con Id incorrecto", async () => {
+    // ARRANGE
+    verificarToken.mockReturnValue({ idCuenta: 0 });
+    cuentasService.buscarPorId.mockResolvedValueOnce(null);
+    let auth = { authorization: "Bearer token" };
+
+    // ACT
+    let result = await api
+      .get("/api/cuentas/obtener-fecha-nacimiento")
+      .set(auth);
+
+    // ASSERT
+    expect(result.status).toBe(200);
+    expect(cuentasService.buscarPorId).toHaveBeenCalledTimes(1);
+    expect(verificarToken).toHaveBeenCalledTimes(2);
+    expect(result.body.type).toBe("error");
+    expect(result.body).toHaveProperty("message");
+    expect(result.body.message).toBe(
+      "El id no corresponde a ninguna cuenta existente."
+    );
+  });
+
+  test("Con error durante el proceso", async () => {
+    // ARRANGE
+    verificarToken.mockReturnValue({ idCuenta: 1 });
+    cuentasService.buscarPorId.mockRejectedValueOnce(new Error("Error"));
+    let auth = { authorization: "Bearer token" };
+
+    // ACT
+    let result = await api
+      .get("/api/cuentas/obtener-fecha-nacimiento")
+      .set(auth);
+
+    // ASSERT
+    expect(result.status).toBe(500);
+  });
+});
+
+describe("Pruebas para obtener correo", () => {
+  test("Con token con Id correcto", async () => {
+    // ARRANGE
+    verificarToken.mockReturnValue({ idCuenta: 1 });
+    cuentasService.buscarPorId.mockResolvedValueOnce({
+      correo: "test@test.com",
+    });
+    let auth = { authorization: "Bearer token" };
+
+    // ACT
+    let result = await api.get("/api/cuentas/obtener-correo").set(auth);
+
+    // ASSERT
+    expect(result.status).toBe(200);
+    expect(verificarToken).toHaveBeenCalledTimes(2);
+    expect(cuentasService.buscarPorId).toHaveBeenCalledTimes(1);
+    expect(result.body.type).toBe("success");
+    expect(result.body.body.cuenta).toStrictEqual({
+      correo: "test@test.com",
+    });
+  });
+
+  test("Sin token", async () => {
+    // ARRANGE
+
+    // ACT
+    let result = await api.get("/api/cuentas/obtener-correo");
+
+    // ASSERT
+    expect(result.status).toBe(401);
+  });
+
+  test("Con token con Id incorrecto", async () => {
+    // ARRANGE
+    verificarToken.mockReturnValue({ idCuenta: 0 });
+    cuentasService.buscarPorId.mockResolvedValueOnce(null);
+    let auth = { authorization: "Bearer token" };
+
+    // ACT
+    let result = await api.get("/api/cuentas/obtener-correo").set(auth);
+
+    // ASSERT
+    expect(result.status).toBe(200);
+    expect(cuentasService.buscarPorId).toHaveBeenCalledTimes(1);
+    expect(verificarToken).toHaveBeenCalledTimes(2);
+    expect(result.body.type).toBe("error");
+    expect(result.body).toHaveProperty("message");
+    expect(result.body.message).toBe(
+      "El id no corresponde a ninguna cuenta existente."
+    );
+  });
+
+  test("Con error durante el proceso", async () => {
+    // ARRANGE
+    verificarToken.mockReturnValue({ idCuenta: 1 });
+    cuentasService.buscarPorId.mockRejectedValueOnce(new Error("Error"));
+    let auth = { authorization: "Bearer token" };
+
+    // ACT
+    let result = await api.get("/api/cuentas/obtener-correo").set(auth);
+
+    // ASSERT
+    expect(result.status).toBe(500);
+  });
+});
+
+describe("Pruebas para actualizar fecha de nacimiento", () => {
+  test("Con token con Id correcto", async () => {
+    // ARRANGE
+    verificarToken.mockReturnValue({ idCuenta: 1 });
+    cuentasService.actualizarFechaNacimiento.mockResolvedValueOnce(true);
+    let auth = { authorization: "Bearer token" };
+    let fechaNueva = { fechaNacimiento: "1999-12-12" };
+
+    // ACT
+    let result = await api
+      .put("/api/cuentas/actualizar-fecha-nacimiento")
+      .set(auth)
+      .send(fechaNueva);
+
+    // ASSERT
+    expect(result.status).toBe(200);
+    expect(verificarToken).toHaveBeenCalledTimes(2);
+    expect(cuentasService.actualizarFechaNacimiento).toHaveBeenCalledTimes(1);
+    expect(result.body.type).toBe("success");
+    expect(result.body).toHaveProperty("message");
+    expect(result.body.message).toBe(
+      "Fecha de nacimiento actualizada correctamente."
+    );
+    expect(result.body.body).toStrictEqual({ cuentaActualizada: true });
+  });
+
+  test("Sin token", async () => {
+    // ARRANGE
+
+    // ACT
+    let result = await api.put("/api/cuentas/actualizar-fecha-nacimiento");
+
+    // ASSERT
+    expect(result.status).toBe(401);
+  });
+
+  test("Con token con Id incorrecto", async () => {
+    // ARRANGE
+    verificarToken.mockReturnValue({ idCuenta: 0 });
+    let auth = { authorization: "Bearer token" };
+    let fechaNueva = { fechaNacimiento: "1999-12-12" };
+    cuentasService.actualizarFechaNacimiento.mockResolvedValueOnce(false);
+    // ACT
+    let result = await api
+      .put("/api/cuentas/actualizar-fecha-nacimiento")
+      .set(auth)
+      .send(fechaNueva);
+
+    // ASSERT
+    expect(result.status).toBe(200);
+    expect(cuentasService.actualizarFechaNacimiento).toHaveBeenCalledTimes(1);
+    expect(verificarToken).toHaveBeenCalledTimes(2);
+    expect(result.body.type).toBe("error");
+    expect(result.body).toHaveProperty("message");
+    expect(result.body.message).toBe(
+      "El id no corresponde a ninguna cuenta existente."
+    );
+  });
+});
+
+describe("Pruebas para actualizar correo", () => {
+  test("Con token con Id correcto", async () => {
+    // ARRANGE
+    verificarToken.mockReturnValue({ idCuenta: 1 });
+    cuentasService.actualizarCorreo.mockResolvedValueOnce(true);
+    let auth = { authorization: "Bearer token" };
+    let correoNuevo = { correo: "nuevoCorreo@correo.com" };
+
+    // ACT
+    let result = await api
+      .put("/api/cuentas/actualizar-correo")
+      .set(auth)
+      .send(correoNuevo);
+
+    // ASSERT
+    expect(result.status).toBe(200);
+    expect(verificarToken).toHaveBeenCalledTimes(2);
+    expect(cuentasService.actualizarCorreo).toHaveBeenCalledTimes(1);
+    expect(result.body.type).toBe("success");
+    expect(result.body).toHaveProperty("message");
+    expect(result.body.message).toBe(
+      "Correo electrónico actualizado correctamente."
+    );
+    expect(result.body.body).toStrictEqual({ cuentaActualizada: true });
+  });
+
+  test("Sin token", async () => {
+    // ARRANGE
+
+    // ACT
+    let result = await api.put("/api/cuentas/actualizar-correo");
+
+    // ASSERT
+    expect(result.status).toBe(401);
+  });
+
+  test("Con token con Id incorrecto", async () => {
+    // ARRANGE
+    verificarToken.mockReturnValue({ idCuenta: 0 });
+    let auth = { authorization: "Bearer token" };
+    let correoNuevo = { correo: "nuevoCorreo@correo.com" };
+    cuentasService.actualizarCorreo.mockResolvedValueOnce(false);
+    // ACT
+    let result = await api
+      .put("/api/cuentas/actualizar-correo")
+      .set(auth)
+      .send(correoNuevo);
+
+    // ASSERT
+    expect(result.status).toBe(200);
+    expect(cuentasService.actualizarCorreo).toHaveBeenCalledTimes(1);
+    expect(verificarToken).toHaveBeenCalledTimes(2);
+    expect(result.body.type).toBe("error");
+    expect(result.body).toHaveProperty("message");
+    expect(result.body.message).toBe(
+      "El id no corresponde a ninguna cuenta existente."
+    );
   });
 });

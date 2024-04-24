@@ -6,7 +6,7 @@
   "scripts": {
     "test": "cross-env NODE_ENV=test jest --verbose --detectOpenHandles  --config jest.config.js",
     "test:watch": "npm run test -- --watchAll",
-    "test:coverage": "npm run test --  --config jest.config.js --coverage --silent",
+    "test:coverage": "npm run test -- --coverage --silent",
     "dev": "cross-env NODE_ENV=development nodemon index.js",
     "start": "cross-env NODE_ENV=production node index.js"
   },
