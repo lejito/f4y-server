@@ -23,14 +23,15 @@ const api = superTest(app);
 afterAll(() => {
   server.close();
 });
-beforeEach(() =>{
+beforeEach(() => {
   cuentasService.buscarPorId.mockReset();
   movimientosService.crearMovimiento.mockReset();
   movimientosService.crearTransferenciaBolsillo.mockReset();
+  // verificarToken.mockReset();
 
 })
 
-function setCargarBolsillo(idCuenta, id, saldoCuenta, saldoCarga, crearTransferencia ) {
+function setCargarBolsillo(idCuenta, id, saldoCuenta, saldoCarga, crearTransferencia) {
   verificarToken.mockReturnValue({ idCuenta: idCuenta });
   cuentasService.buscarPorId.mockResolvedValueOnce({
     id: id,
@@ -42,7 +43,7 @@ function setCargarBolsillo(idCuenta, id, saldoCuenta, saldoCarga, crearTransfere
   });
   movimientosService.crearTransferenciaBolsillo.mockResolvedValueOnce(crearTransferencia);
 }
-function setDescargarBolsillo(idCuenta, id, saldoBolsillo, saldoDescarga, crearTransferencia ) {
+function setDescargarBolsillo(idCuenta, id, saldoBolsillo, saldoDescarga, crearTransferencia) {
   verificarToken.mockReturnValue({ idCuenta: idCuenta });
   cuentasService.buscarPorId.mockResolvedValueOnce({
     id: id,
@@ -57,6 +58,26 @@ function setDescargarBolsillo(idCuenta, id, saldoBolsillo, saldoDescarga, crearT
   });
   movimientosService.crearTransferenciaBolsillo.mockResolvedValueOnce(crearTransferencia);
 }
+function setObtenerBolsillos(idCuenta) {
+  verificarToken.mockReturnValue({ idCuenta: idCuenta });
+  if (idCuenta) {
+    cuentasService.buscarPorId.mockResolvedValueOnce({
+      id: idCuenta,
+    });
+  } else {
+    cuentasService.buscarPorId.mockResolvedValueOnce(idCuenta)
+  }
+  bolsillosService.obtener.mockResolvedValueOnce([
+    bolsillo1 = {
+      saldo: 100,
+      saldoObjetivo: 1000
+    }, 
+    bolsillo2 ={
+      saldo:200,
+      saldoObjetivo:1000
+    }
+  ])
+}
 
 describe("Pruebas para el endpoint de carga", () => {
   test("Carga con saldo suficiente", async () => {
@@ -69,7 +90,7 @@ describe("Pruebas para el endpoint de carga", () => {
       monto: 100,
     };
 
-    setCargarBolsillo(1,1,200,100,true);
+    setCargarBolsillo(1, 1, 200, 100, true);
 
     //ACT
 
@@ -93,7 +114,7 @@ describe("Pruebas para el endpoint de carga", () => {
       monto: 1000,
     };
 
-    setCargarBolsillo(1,1,200,1000,true);
+    setCargarBolsillo(1, 1, 200, 1000, true);
 
     //ACT
 
@@ -117,7 +138,7 @@ describe("Pruebas para el endpoint de carga", () => {
       monto: 100,
     };
 
-    setCargarBolsillo(1,1,200,100,false);
+    setCargarBolsillo(1, 1, 200, 100, false);
 
     //ACT
 
@@ -143,7 +164,7 @@ describe("Pruebas para el endpoint de descarga", () => {
       monto: 100,
     };
 
-    setDescargarBolsillo(1,1,200,100,true);
+    setDescargarBolsillo(1, 1, 200, 100, true);
 
     //ACT
 
@@ -153,7 +174,7 @@ describe("Pruebas para el endpoint de descarga", () => {
 
     expect(res.status).toBe(200);
     expect(res.body).toHaveProperty("message");
-    
+
     expect(res.body.message).toBe("Transacción realizada correctamente.");
     expect(res.body.type).toBe("success");
     expect(cuentasService.buscarPorId).toHaveBeenCalledTimes(1);
@@ -168,7 +189,7 @@ describe("Pruebas para el endpoint de descarga", () => {
       monto: 1000,
     };
 
-    setDescargarBolsillo(1,1,200,1000,true);
+    setDescargarBolsillo(1, 1, 200, 1000, true);
 
     //ACT
 
@@ -178,7 +199,7 @@ describe("Pruebas para el endpoint de descarga", () => {
 
     expect(res.status).toBe(200);
     expect(res.body).toHaveProperty("message");
-    
+
     expect(res.body.message).toBe("No hay saldo disponible para realizar la transacción.");
     expect(res.body.type).toBe("error");
     expect(cuentasService.buscarPorId).toHaveBeenCalledTimes(1);
@@ -193,7 +214,7 @@ describe("Pruebas para el endpoint de descarga", () => {
       monto: 100,
     };
 
-    setDescargarBolsillo(1,1,200,100,false);
+    setDescargarBolsillo(1, 1, 200, 100, false);
 
     //ACT
 
@@ -203,8 +224,54 @@ describe("Pruebas para el endpoint de descarga", () => {
 
     expect(res.status).toBe(200);
     expect(res.body).toHaveProperty("message");
-    
+
     expect(res.body.message).toBe("No se pudo crear la transacción.");
+    expect(res.body.type).toBe("error");
+    expect(cuentasService.buscarPorId).toHaveBeenCalledTimes(1);
+  });
+});
+describe("Pruebas para el endpoint de obtener", () => {
+  test("Obtener bolsillos de una cuenta existente", async () => {
+    //ARRANGE
+    const auth = {
+      authorization: "token_de_prueba",
+    };
+
+
+    setObtenerBolsillos(1);
+
+    //ACT
+
+    const res = await api.get("/api/bolsillos/obtener").set(auth);
+
+    //ASSERT
+
+    expect(res.status).toBe(200);
+    expect(res.body).toHaveProperty("message");
+
+    expect(res.body.message).toBe("Lista de bolsillos obtenida correctamente.");
+    expect(res.body.type).toBe("success");
+    expect(cuentasService.buscarPorId).toHaveBeenCalledTimes(1);
+  });
+  test("Obtener bolsillos de una cuenta inexistente", async () => {
+    //ARRANGE
+    const auth = {
+      authorization: "token_de_prueba",
+    };
+
+
+    setObtenerBolsillos(false);
+
+    //ACT
+
+    const res = await api.get("/api/bolsillos/obtener").set(auth);
+
+    //ASSERT
+
+    expect(res.status).toBe(200);
+    expect(res.body).toHaveProperty("message");
+
+    expect(res.body.message).toBe("La identificación no corresponde a ninguna cuenta existente.");
     expect(res.body.type).toBe("error");
     expect(cuentasService.buscarPorId).toHaveBeenCalledTimes(1);
   });
