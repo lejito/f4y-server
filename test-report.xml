@@ -1,89 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\tests\cuentas.test.js">
-    <testCase name="Pruebas para el endpoint de inicio de sesión Con datos incorrectos" duration="2934"/>
-    <testCase name="Pruebas para el endpoint de inicio de sesión Con tipo y numero de identificacion correcta pero contraseña incorrecta " duration="227"/>
-    <testCase name="Pruebas para el endpoint de inicio de sesión Con datos correctos " duration="424"/>
-    <testCase name="Pruebas para el endpoint de inicio de sesión Sin pasar datos " duration="161">
+  <file path="C:\Users\jphoy\Documents\Semestre_7\Validacion\f4y-server\tests\cuentas.test.js">
+    <testCase name="Pruebas para el endpoint de inicio de sesión Con datos incorrectos" duration="1962"/>
+    <testCase name="Pruebas para el endpoint de inicio de sesión Con tipo y numero de identificacion correcta pero contraseña incorrecta " duration="174"/>
+    <testCase name="Pruebas para el endpoint de inicio de sesión Con datos correctos " duration="281"/>
+    <testCase name="Pruebas para el endpoint de inicio de sesión Sin pasar datos " duration="108">
       <failure message="Error: expected 400 &quot;Bad Request&quot;, got 200 &quot;OK&quot;"><![CDATA[Error: expected 400 "Bad Request", got 200 "OK"
-    at Object.expect (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\tests\cuentas.test.js:97:8)
-    at Promise.then.completed (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\jest-circus\build\utils.js:298:28)
+    at Object.expect (C:\Users\jphoy\Documents\Semestre_7\Validacion\f4y-server\tests\cuentas.test.js:97:8)
+    at Promise.then.completed (C:\Users\jphoy\Documents\Semestre_7\Validacion\f4y-server\node_modules\jest-circus\build\utils.js:298:28)
     at new Promise (<anonymous>)
-    at callAsyncCircusFn (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\jest-circus\build\utils.js:231:10)
-    at _callCircusTest (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\jest-circus\build\run.js:316:40)
+    at callAsyncCircusFn (C:\Users\jphoy\Documents\Semestre_7\Validacion\f4y-server\node_modules\jest-circus\build\utils.js:231:10)
+    at _callCircusTest (C:\Users\jphoy\Documents\Semestre_7\Validacion\f4y-server\node_modules\jest-circus\build\run.js:316:40)
     at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at _runTest (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\jest-circus\build\run.js:252:3)
-    at _runTestsForDescribeBlock (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\jest-circus\build\run.js:126:9)
-    at _runTestsForDescribeBlock (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\jest-circus\build\run.js:121:9)
-    at run (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\jest-circus\build\run.js:71:3)
-    at runAndTransformResultsToJestFormat (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
-    at jestAdapter (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
-    at runTestInternal (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\jest-runner\build\runTest.js:367:16)
-    at runTest (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\jest-runner\build\runTest.js:444:34)
+    at _runTest (C:\Users\jphoy\Documents\Semestre_7\Validacion\f4y-server\node_modules\jest-circus\build\run.js:252:3)
+    at _runTestsForDescribeBlock (C:\Users\jphoy\Documents\Semestre_7\Validacion\f4y-server\node_modules\jest-circus\build\run.js:126:9)
+    at _runTestsForDescribeBlock (C:\Users\jphoy\Documents\Semestre_7\Validacion\f4y-server\node_modules\jest-circus\build\run.js:121:9)
+    at run (C:\Users\jphoy\Documents\Semestre_7\Validacion\f4y-server\node_modules\jest-circus\build\run.js:71:3)
+    at runAndTransformResultsToJestFormat (C:\Users\jphoy\Documents\Semestre_7\Validacion\f4y-server\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:122:21)
+    at jestAdapter (C:\Users\jphoy\Documents\Semestre_7\Validacion\f4y-server\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Users\jphoy\Documents\Semestre_7\Validacion\f4y-server\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Users\jphoy\Documents\Semestre_7\Validacion\f4y-server\node_modules\jest-runner\build\runTest.js:444:34)
 ----
-    at Test._assertStatus (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\supertest\lib\test.js:252:14)
-    at C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\supertest\lib\test.js:308:13
-    at Test._assertFunction (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\supertest\lib\test.js:285:13)
-    at Test.assert (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\supertest\lib\test.js:164:23)
-    at Server.localAssert (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\node_modules\supertest\lib\test.js:120:14)
+    at Test._assertStatus (C:\Users\jphoy\Documents\Semestre_7\Validacion\f4y-server\node_modules\supertest\lib\test.js:252:14)
+    at C:\Users\jphoy\Documents\Semestre_7\Validacion\f4y-server\node_modules\supertest\lib\test.js:308:13
+    at Test._assertFunction (C:\Users\jphoy\Documents\Semestre_7\Validacion\f4y-server\node_modules\supertest\lib\test.js:285:13)
+    at Test.assert (C:\Users\jphoy\Documents\Semestre_7\Validacion\f4y-server\node_modules\supertest\lib\test.js:164:23)
+    at Server.localAssert (C:\Users\jphoy\Documents\Semestre_7\Validacion\f4y-server\node_modules\supertest\lib\test.js:120:14)
     at Object.onceWrapper (node:events:628:28)
     at Server.emit (node:events:514:28)
-    at emitCloseNT (node:net:2273:8)
+    at emitCloseNT (node:net:2148:8)
     at processTicksAndRejections (node:internal/process/task_queues:81:21)]]></failure>
     </testCase>
-    <testCase name="Pruebas para el endpoint de inicio de sesión Iniciar sesión sin pasar objeto en la request" duration="18"/>
-    <testCase name="Pruebas para el endpoint obtener Identificacion sin token" duration="20"/>
-    <testCase name="Pruebas para el endpoint obtener Identificacion con token incorrecto" duration="12"/>
-    <testCase name="Pruebas para el endpoint obtener Identificacion con token correcto" duration="153"/>
+    <testCase name="Pruebas para el endpoint de inicio de sesión Iniciar sesión sin pasar objeto en la request" duration="14"/>
+    <testCase name="Pruebas para el endpoint obtener Identificacion sin token" duration="12"/>
+    <testCase name="Pruebas para el endpoint obtener Identificacion con token incorrecto" duration="16"/>
+    <testCase name="Pruebas para el endpoint obtener Identificacion con token correcto" duration="111"/>
   </file>
-  <file path="C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\tests\mocks\cuentas_mocks.test.js">
-    <testCase name="Pruebas para crear cuenta Con datos correctos  Todos los campos completos" duration="113"/>
-    <testCase name="Pruebas para crear cuenta Con datos correctos  Sin segundo nombre ni segundo apellido" duration="11">
+  <file path="C:\Users\jphoy\Documents\Semestre_7\Validacion\f4y-server\tests\mocks\cuentas_mocks.test.js">
+    <testCase name="Pruebas para crear cuenta Con datos correctos  Todos los campos completos" duration="103"/>
+    <testCase name="Pruebas para crear cuenta Con datos correctos  Sin segundo nombre ni segundo apellido" duration="18">
       <failure message="Error: expect(received).toBe(expected) // Object.is equality"><![CDATA[Error: expect(received).toBe(expected) // Object.is equality
 
 Expected: 200
 Received: 400
-    at Object.toBe (C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\tests\mocks\cuentas_mocks.test.js:114:29)
+    at Object.toBe (C:\Users\jphoy\Documents\Semestre_7\Validacion\f4y-server\tests\mocks\cuentas_mocks.test.js:114:29)
     at processTicksAndRejections (node:internal/process/task_queues:95:5)]]></failure>
     </testCase>
-    <testCase name="Pruebas para crear cuenta Con datos incorrectos Sin numero de identificacion" duration="17"/>
-    <testCase name="Pruebas para crear cuenta Con datos incorrectos Sin numero de identificacion" duration="11"/>
+    <testCase name="Pruebas para crear cuenta Con datos incorrectos Sin numero de identificacion" duration="15"/>
+    <testCase name="Pruebas para crear cuenta Con datos incorrectos Sin numero de identificacion" duration="19"/>
     <testCase name="Pruebas para crear cuenta Con datos incorrectos Sin primer nombre" duration="12"/>
-    <testCase name="Pruebas para crear cuenta Con datos incorrectos Sin primer apellido" duration="16"/>
-    <testCase name="Pruebas para crear cuenta Con datos ya registrados Con correo ya registrado" duration="13"/>
-    <testCase name="Pruebas para crear cuenta Con datos ya registrados Con identificacion ya registrada" duration="10"/>
-    <testCase name="Pruebas para obtener nombre Con token con Id correcto" duration="13"/>
-    <testCase name="Pruebas para obtener nombre Sin token" duration="11"/>
+    <testCase name="Pruebas para crear cuenta Con datos incorrectos Sin primer apellido" duration="14"/>
+    <testCase name="Pruebas para crear cuenta Con datos ya registrados Con correo ya registrado" duration="12"/>
+    <testCase name="Pruebas para crear cuenta Con datos ya registrados Con identificacion ya registrada" duration="12"/>
+    <testCase name="Pruebas para obtener nombre Con token con Id correcto" duration="15"/>
+    <testCase name="Pruebas para obtener nombre Sin token" duration="12"/>
     <testCase name="Pruebas para obtener nombre Con token con Id incorrecto" duration="10"/>
-    <testCase name="Pruebas para obtener nombre Con error durante el proceso" duration="9"/>
+    <testCase name="Pruebas para obtener nombre Con error durante el proceso" duration="14"/>
     <testCase name="Pruebas para obtener fecha de nacimiento Con token con Id correcto" duration="11"/>
-    <testCase name="Pruebas para obtener fecha de nacimiento Sin token" duration="10"/>
-    <testCase name="Pruebas para obtener fecha de nacimiento Con token con Id incorrecto" duration="8"/>
-    <testCase name="Pruebas para obtener fecha de nacimiento Con error durante el proceso" duration="9"/>
-    <testCase name="Pruebas para obtener correo Con token con Id correcto" duration="10"/>
-    <testCase name="Pruebas para obtener correo Sin token" duration="10"/>
-    <testCase name="Pruebas para obtener correo Con token con Id incorrecto" duration="10"/>
-    <testCase name="Pruebas para obtener correo Con error durante el proceso" duration="9"/>
-    <testCase name="Pruebas para actualizar fecha de nacimiento Con token con Id correcto" duration="15"/>
+    <testCase name="Pruebas para obtener fecha de nacimiento Sin token" duration="12"/>
+    <testCase name="Pruebas para obtener fecha de nacimiento Con token con Id incorrecto" duration="11"/>
+    <testCase name="Pruebas para obtener fecha de nacimiento Con error durante el proceso" duration="10"/>
+    <testCase name="Pruebas para obtener correo Con token con Id correcto" duration="11"/>
+    <testCase name="Pruebas para obtener correo Sin token" duration="12"/>
+    <testCase name="Pruebas para obtener correo Con token con Id incorrecto" duration="11"/>
+    <testCase name="Pruebas para obtener correo Con error durante el proceso" duration="11"/>
+    <testCase name="Pruebas para actualizar fecha de nacimiento Con token con Id correcto" duration="12"/>
     <testCase name="Pruebas para actualizar fecha de nacimiento Sin token" duration="11"/>
     <testCase name="Pruebas para actualizar fecha de nacimiento Con token con Id incorrecto" duration="11"/>
-    <testCase name="Pruebas para actualizar correo Con token con Id correcto" duration="9"/>
-    <testCase name="Pruebas para actualizar correo Sin token" duration="9"/>
-    <testCase name="Pruebas para actualizar correo Con token con Id incorrecto" duration="10"/>
+    <testCase name="Pruebas para actualizar correo Con token con Id correcto" duration="12"/>
+    <testCase name="Pruebas para actualizar correo Sin token" duration="11"/>
+    <testCase name="Pruebas para actualizar correo Con token con Id incorrecto" duration="12"/>
   </file>
-  <file path="C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\tests\bolsillos.test.js">
-    <testCase name="Pruebas para el endpoint de carga Cargar con saldo suficiente" duration="2855"/>
-    <testCase name="Pruebas para el endpoint de carga Cargar sin saldo suficiente" duration="141"/>
-    <testCase name="Pruebas para el endpoint de carga Cargar con identificación de bolsillo incorrecta" duration="466"/>
-    <testCase name="Pruebas para el endpoint de descarga Descargar monto inferior al saldo del bolsillo" duration="879"/>
-    <testCase name="Pruebas para el endpoint de descarga Descargar monto superior al saldo del bolsillo" duration="295"/>
-    <testCase name="Pruebas para el endpoint de descarga Descargar con identificación de bolsillo incorrecta" duration="290"/>
+  <file path="C:\Users\jphoy\Documents\Semestre_7\Validacion\f4y-server\tests\mocks\movimientos_mocks.test.js">
+    <testCase name="Pruebas para el endpoint de descargar cuenta Carga con datos correctos" duration="46"/>
   </file>
-  <file path="C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\tests\mocks\bolsillos_mocks.test.js">
-    <testCase name="Pruebas para el endpoint de carga Debería cargar correctamente" duration="31"/>
+  <file path="C:\Users\jphoy\Documents\Semestre_7\Validacion\f4y-server\tests\bolsillos.test.js">
+    <testCase name="Pruebas para el endpoint de carga Cargar con saldo suficiente" duration="2282"/>
+    <testCase name="Pruebas para el endpoint de carga Cargar sin saldo suficiente" duration="115"/>
+    <testCase name="Pruebas para el endpoint de carga Cargar con identificación de bolsillo incorrecta" duration="405"/>
+    <testCase name="Pruebas para el endpoint de descarga Descargar monto inferior al saldo del bolsillo" duration="589"/>
+    <testCase name="Pruebas para el endpoint de descarga Descargar monto superior al saldo del bolsillo" duration="215"/>
+    <testCase name="Pruebas para el endpoint de descarga Descargar con identificación de bolsillo incorrecta" duration="204"/>
   </file>
-  <file path="C:\Users\Adrian Perdomo\Desktop\Universidad\Semestre 7\Validacion\f4y-server\tests\mocks\auth_middleware_mock.test.js">
-    <testCase name="Pruebas para Auth Middleware  Debería devolver un error 401 si no se envía un token" duration="22"/>
-    <testCase name="Pruebas para Auth Middleware  Debería devolver un error 401 si el token es inválido" duration="9"/>
+  <file path="C:\Users\jphoy\Documents\Semestre_7\Validacion\f4y-server\tests\mocks\bolsillos_mocks.test.js">
+    <testCase name="Pruebas para el endpoint de carga Carga con saldo suficiente" duration="39"/>
+    <testCase name="Pruebas para el endpoint de carga Cargar sin saldo suficiente" duration="11"/>
+    <testCase name="Pruebas para el endpoint de carga Cargar con identificacion de bolsillo incorrecta" duration="14"/>
+    <testCase name="Pruebas para el endpoint de descarga Descargar monto inferior al saldo del bolsillo" duration="13"/>
+    <testCase name="Pruebas para el endpoint de descarga Descargar monto superior al saldo del bolsillo" duration="13"/>
+    <testCase name="Pruebas para el endpoint de descarga Descargar con identificación de bolsillo incorrecta" duration="13"/>
+  </file>
+  <file path="C:\Users\jphoy\Documents\Semestre_7\Validacion\f4y-server\tests\mocks\auth_middleware_mock.test.js">
+    <testCase name="Pruebas para Auth Middleware  Debería devolver un error 401 si no se envía un token" duration="23"/>
+    <testCase name="Pruebas para Auth Middleware  Debería devolver un error 401 si el token es inválido" duration="18"/>
   </file>
 </testExecutions>
