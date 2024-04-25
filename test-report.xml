@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
   <file path="C:\Users\jphoy\Documents\Semestre_7\Validacion\f4y-server\tests\cuentas.test.js">
-    <testCase name="Pruebas para el endpoint de inicio de sesión Con datos incorrectos" duration="4247"/>
-    <testCase name="Pruebas para el endpoint de inicio de sesión Con tipo y numero de identificacion correcta pero contraseña incorrecta " duration="269"/>
-    <testCase name="Pruebas para el endpoint de inicio de sesión Con datos correctos " duration="459"/>
-    <testCase name="Pruebas para el endpoint de inicio de sesión Sin pasar datos " duration="174">
+    <testCase name="Pruebas para el endpoint de inicio de sesión Con datos incorrectos" duration="4478"/>
+    <testCase name="Pruebas para el endpoint de inicio de sesión Con tipo y numero de identificacion correcta pero contraseña incorrecta " duration="277"/>
+    <testCase name="Pruebas para el endpoint de inicio de sesión Con datos correctos " duration="478"/>
+    <testCase name="Pruebas para el endpoint de inicio de sesión Sin pasar datos " duration="162">
       <failure message="Error: expected 400 &quot;Bad Request&quot;, got 200 &quot;OK&quot;"><![CDATA[Error: expected 400 "Bad Request", got 200 "OK"
     at Object.expect (C:\Users\jphoy\Documents\Semestre_7\Validacion\f4y-server\tests\cuentas.test.js:97:8)
     at Promise.then.completed (C:\Users\jphoy\Documents\Semestre_7\Validacion\f4y-server\node_modules\jest-circus\build\utils.js:298:28)
@@ -31,24 +31,14 @@
     at emitCloseNT (node:net:2148:8)
     at processTicksAndRejections (node:internal/process/task_queues:81:21)]]></failure>
     </testCase>
-    <testCase name="Pruebas para el endpoint de inicio de sesión Iniciar sesión sin pasar objeto en la request" duration="21"/>
-    <testCase name="Pruebas para el endpoint obtener Identificacion sin token" duration="29"/>
-    <testCase name="Pruebas para el endpoint obtener Identificacion con token incorrecto" duration="21"/>
-    <testCase name="Pruebas para el endpoint obtener Identificacion con token correcto" duration="164"/>
-  </file>
-  <file path="C:\Users\jphoy\Documents\Semestre_7\Validacion\f4y-server\tests\mocks\bolsillos_mocks.test.js">
-    <testCase name="Pruebas para el endpoint de carga Carga con saldo suficiente" duration="73"/>
-    <testCase name="Pruebas para el endpoint de carga Cargar sin saldo suficiente" duration="30"/>
-    <testCase name="Pruebas para el endpoint de carga Cargar con identificacion de bolsillo incorrecta" duration="22"/>
-    <testCase name="Pruebas para el endpoint de descarga Descargar monto inferior al saldo del bolsillo" duration="29"/>
-    <testCase name="Pruebas para el endpoint de descarga Descargar monto superior al saldo del bolsillo" duration="28"/>
-    <testCase name="Pruebas para el endpoint de descarga Descargar con identificación de bolsillo incorrecta" duration="34"/>
-    <testCase name="Pruebas para el endpoint de obtener Obtener bolsillos de una cuenta existente" duration="24"/>
-    <testCase name="Pruebas para el endpoint de obtener Obtener bolsillos de una cuenta inexistente" duration="21"/>
+    <testCase name="Pruebas para el endpoint de inicio de sesión Iniciar sesión sin pasar objeto en la request" duration="35"/>
+    <testCase name="Pruebas para el endpoint obtener Identificacion sin token" duration="31"/>
+    <testCase name="Pruebas para el endpoint obtener Identificacion con token incorrecto" duration="22"/>
+    <testCase name="Pruebas para el endpoint obtener Identificacion con token correcto" duration="167"/>
   </file>
   <file path="C:\Users\jphoy\Documents\Semestre_7\Validacion\f4y-server\tests\mocks\cuentas_mocks.test.js">
-    <testCase name="Pruebas para crear cuenta Con datos correctos  Todos los campos completos" duration="154"/>
-    <testCase name="Pruebas para crear cuenta Con datos correctos  Sin segundo nombre ni segundo apellido" duration="27">
+    <testCase name="Pruebas para crear cuenta Con datos correctos  Todos los campos completos" duration="203"/>
+    <testCase name="Pruebas para crear cuenta Con datos correctos  Sin segundo nombre ni segundo apellido" duration="45">
       <failure message="Error: expect(received).toBe(expected) // Object.is equality"><![CDATA[Error: expect(received).toBe(expected) // Object.is equality
 
 Expected: 200
@@ -56,49 +46,59 @@ Received: 400
     at Object.toBe (C:\Users\jphoy\Documents\Semestre_7\Validacion\f4y-server\tests\mocks\cuentas_mocks.test.js:114:29)
     at processTicksAndRejections (node:internal/process/task_queues:95:5)]]></failure>
     </testCase>
-    <testCase name="Pruebas para crear cuenta Con datos incorrectos Sin numero de identificacion" duration="19"/>
-    <testCase name="Pruebas para crear cuenta Con datos incorrectos Sin numero de identificacion" duration="19"/>
-    <testCase name="Pruebas para crear cuenta Con datos incorrectos Sin primer nombre" duration="21"/>
-    <testCase name="Pruebas para crear cuenta Con datos incorrectos Sin primer apellido" duration="18"/>
-    <testCase name="Pruebas para crear cuenta Con datos ya registrados Con correo ya registrado" duration="19"/>
-    <testCase name="Pruebas para crear cuenta Con datos ya registrados Con identificacion ya registrada" duration="16"/>
-    <testCase name="Pruebas para obtener nombre Con token con Id correcto" duration="20"/>
-    <testCase name="Pruebas para obtener nombre Sin token" duration="18"/>
-    <testCase name="Pruebas para obtener nombre Con token con Id incorrecto" duration="19"/>
-    <testCase name="Pruebas para obtener nombre Con error durante el proceso" duration="19"/>
-    <testCase name="Pruebas para obtener fecha de nacimiento Con token con Id correcto" duration="18"/>
-    <testCase name="Pruebas para obtener fecha de nacimiento Sin token" duration="16"/>
-    <testCase name="Pruebas para obtener fecha de nacimiento Con token con Id incorrecto" duration="15"/>
-    <testCase name="Pruebas para obtener fecha de nacimiento Con error durante el proceso" duration="15"/>
-    <testCase name="Pruebas para obtener correo Con token con Id correcto" duration="18"/>
-    <testCase name="Pruebas para obtener correo Sin token" duration="17"/>
-    <testCase name="Pruebas para obtener correo Con token con Id incorrecto" duration="17"/>
-    <testCase name="Pruebas para obtener correo Con error durante el proceso" duration="19"/>
-    <testCase name="Pruebas para actualizar fecha de nacimiento Con token con Id correcto" duration="24"/>
-    <testCase name="Pruebas para actualizar fecha de nacimiento Sin token" duration="17"/>
+    <testCase name="Pruebas para crear cuenta Con datos incorrectos Sin numero de identificacion" duration="24"/>
+    <testCase name="Pruebas para crear cuenta Con datos incorrectos Sin numero de identificacion" duration="38"/>
+    <testCase name="Pruebas para crear cuenta Con datos incorrectos Sin primer nombre" duration="27"/>
+    <testCase name="Pruebas para crear cuenta Con datos incorrectos Sin primer apellido" duration="32"/>
+    <testCase name="Pruebas para crear cuenta Con datos ya registrados Con correo ya registrado" duration="18"/>
+    <testCase name="Pruebas para crear cuenta Con datos ya registrados Con identificacion ya registrada" duration="26"/>
+    <testCase name="Pruebas para obtener nombre Con token con Id correcto" duration="28"/>
+    <testCase name="Pruebas para obtener nombre Sin token" duration="19"/>
+    <testCase name="Pruebas para obtener nombre Con token con Id incorrecto" duration="28"/>
+    <testCase name="Pruebas para obtener nombre Con error durante el proceso" duration="34"/>
+    <testCase name="Pruebas para obtener fecha de nacimiento Con token con Id correcto" duration="26"/>
+    <testCase name="Pruebas para obtener fecha de nacimiento Sin token" duration="25"/>
+    <testCase name="Pruebas para obtener fecha de nacimiento Con token con Id incorrecto" duration="29"/>
+    <testCase name="Pruebas para obtener fecha de nacimiento Con error durante el proceso" duration="20"/>
+    <testCase name="Pruebas para obtener correo Con token con Id correcto" duration="20"/>
+    <testCase name="Pruebas para obtener correo Sin token" duration="25"/>
+    <testCase name="Pruebas para obtener correo Con token con Id incorrecto" duration="23"/>
+    <testCase name="Pruebas para obtener correo Con error durante el proceso" duration="31"/>
+    <testCase name="Pruebas para actualizar fecha de nacimiento Con token con Id correcto" duration="30"/>
+    <testCase name="Pruebas para actualizar fecha de nacimiento Sin token" duration="26"/>
     <testCase name="Pruebas para actualizar fecha de nacimiento Con token con Id incorrecto" duration="18"/>
-    <testCase name="Pruebas para actualizar correo Con token con Id correcto" duration="17"/>
-    <testCase name="Pruebas para actualizar correo Sin token" duration="17"/>
-    <testCase name="Pruebas para actualizar correo Con token con Id incorrecto" duration="21"/>
+    <testCase name="Pruebas para actualizar correo Con token con Id correcto" duration="31"/>
+    <testCase name="Pruebas para actualizar correo Sin token" duration="21"/>
+    <testCase name="Pruebas para actualizar correo Con token con Id incorrecto" duration="22"/>
   </file>
   <file path="C:\Users\jphoy\Documents\Semestre_7\Validacion\f4y-server\tests\bolsillos.test.js">
-    <testCase name="Pruebas para el endpoint de carga Cargar con saldo suficiente" duration="4631"/>
-    <testCase name="Pruebas para el endpoint de carga Cargar sin saldo suficiente" duration="160"/>
-    <testCase name="Pruebas para el endpoint de carga Cargar con identificación de bolsillo incorrecta" duration="554"/>
-    <testCase name="Pruebas para el endpoint de descarga Descargar monto inferior al saldo del bolsillo" duration="896"/>
-    <testCase name="Pruebas para el endpoint de descarga Descargar monto superior al saldo del bolsillo" duration="296"/>
-    <testCase name="Pruebas para el endpoint de descarga Descargar con identificación de bolsillo incorrecta" duration="307"/>
+    <testCase name="Pruebas para el endpoint de carga Cargar con saldo suficiente" duration="3371"/>
+    <testCase name="Pruebas para el endpoint de carga Cargar sin saldo suficiente" duration="169"/>
+    <testCase name="Pruebas para el endpoint de carga Cargar con identificación de bolsillo incorrecta" duration="642"/>
+    <testCase name="Pruebas para el endpoint de descarga Descargar monto inferior al saldo del bolsillo" duration="967"/>
+    <testCase name="Pruebas para el endpoint de descarga Descargar monto superior al saldo del bolsillo" duration="309"/>
+    <testCase name="Pruebas para el endpoint de descarga Descargar con identificación de bolsillo incorrecta" duration="306"/>
+  </file>
+  <file path="C:\Users\jphoy\Documents\Semestre_7\Validacion\f4y-server\tests\mocks\bolsillos_mocks.test.js">
+    <testCase name="Pruebas para el endpoint de carga Carga con saldo suficiente" duration="76"/>
+    <testCase name="Pruebas para el endpoint de carga Cargar sin saldo suficiente" duration="27"/>
+    <testCase name="Pruebas para el endpoint de carga Cargar con identificacion de bolsillo incorrecta" duration="25"/>
+    <testCase name="Pruebas para el endpoint de descarga Descargar monto inferior al saldo del bolsillo" duration="26"/>
+    <testCase name="Pruebas para el endpoint de descarga Descargar monto superior al saldo del bolsillo" duration="21"/>
+    <testCase name="Pruebas para el endpoint de descarga Descargar con identificación de bolsillo incorrecta" duration="25"/>
+    <testCase name="Pruebas para el endpoint de obtener Obtener bolsillos de una cuenta existente" duration="25"/>
+    <testCase name="Pruebas para el endpoint de obtener Obtener bolsillos de una cuenta inexistente" duration="20"/>
   </file>
   <file path="C:\Users\jphoy\Documents\Semestre_7\Validacion\f4y-server\tests\mocks\movimientos_mocks.test.js">
-    <testCase name="Pruebas para el endpoint de descargar cuenta Descarga con datos correctos" duration="70"/>
-    <testCase name="Pruebas para el endpoint de descargar cuenta Descarga con datos incorrectos" duration="29"/>
-    <testCase name="Pruebas para el endpoint de descargar cuenta Descarga con saldo insuficiente" duration="28"/>
-    <testCase name="Pruebas para el endpoint de descargar cuenta Descarga con id de cuenta inexistente" duration="19"/>
-    <testCase name="Pruebas para el endpoint de obtener ultimos Ultimos movimientos con id de cuenta correcto" duration="26"/>
-    <testCase name="Pruebas para el endpoint de obtener ultimos Ultimos movimientos con id de cuenta incorrecto" duration="19"/>
+    <testCase name="Pruebas para el endpoint de descargar cuenta Descarga con datos correctos" duration="79"/>
+    <testCase name="Pruebas para el endpoint de descargar cuenta Descarga con datos incorrectos" duration="30"/>
+    <testCase name="Pruebas para el endpoint de descargar cuenta Descarga con saldo insuficiente" duration="33"/>
+    <testCase name="Pruebas para el endpoint de descargar cuenta Descarga con id de cuenta inexistente" duration="22"/>
+    <testCase name="Pruebas para el endpoint de obtener ultimos Ultimos movimientos con id de cuenta correcto" duration="24"/>
+    <testCase name="Pruebas para el endpoint de obtener ultimos Ultimos movimientos con id de cuenta incorrecto" duration="24"/>
   </file>
   <file path="C:\Users\jphoy\Documents\Semestre_7\Validacion\f4y-server\tests\mocks\auth_middleware_mock.test.js">
-    <testCase name="Pruebas para Auth Middleware  Debería devolver un error 401 si no se envía un token" duration="43"/>
-    <testCase name="Pruebas para Auth Middleware  Debería devolver un error 401 si el token es inválido" duration="19"/>
+    <testCase name="Pruebas para Auth Middleware  Debería devolver un error 401 si no se envía un token" duration="38"/>
+    <testCase name="Pruebas para Auth Middleware  Debería devolver un error 401 si el token es inválido" duration="29"/>
   </file>
 </testExecutions>
