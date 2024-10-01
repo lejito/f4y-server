@@ -470,9 +470,7 @@ class BolsillosController {
 
               //<17>
               await bolsillosService.sumarSaldo(id, monto);
-              //<17>
-
-              //<18>
+              
               return res.status(200).json(
                 utils.successResponse("Transacción realizada correctamente.", {
                   movimiento: {
