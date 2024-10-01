@@ -1,0 +1,1558 @@
+{
+  "id": "f4edf9ec-de1d-4368-a9bd-cea4b459e407",
+  "version": "2.0",
+  "name": "F4Y_Tests",
+  "url": "https://f4y.vercel.app/login",
+  "tests": [{
+    "id": "6fc2aa12-39bb-47df-9fbe-2aeca6c46d80",
+    "name": "Register without data",
+    "commands": [{
+      "id": "49fbd959-1ca0-4569-9714-47666e8f1df9",
+      "comment": "",
+      "command": "open",
+      "target": "https://f4y.vercel.app/register",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fdb11ef9-5b15-401f-8e3c-930cec1e11b2",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4d0d9d4f-f406-462b-9d2b-3ff4cb833ad1",
+      "comment": "",
+      "command": "select",
+      "target": "id=tipoIdentificacion",
+      "targets": [
+        ["id=tipoIdentificacion", "id"],
+        ["name=tipoIdentificacion", "name"],
+        ["css=#tipoIdentificacion", "css:finder"],
+        ["xpath=//select[@id='tipoIdentificacion']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": "label=Seleccionar tipo de identificación"
+    }, {
+      "id": "966a56b4-d97c-448c-9de4-51935ce288d8",
+      "comment": "",
+      "command": "type",
+      "target": "id=numeroIdentificacion",
+      "targets": [
+        ["id=numeroIdentificacion", "id"],
+        ["name=numeroIdentificacion", "name"],
+        ["css=#numeroIdentificacion", "css:finder"],
+        ["xpath=//input[@id='numeroIdentificacion']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "165c092d-01dd-4abd-824f-f4d5981043ce",
+      "comment": "",
+      "command": "type",
+      "target": "id=primerNombre",
+      "targets": [
+        ["id=primerNombre", "id"],
+        ["name=primerNombre", "name"],
+        ["css=#primerNombre", "css:finder"],
+        ["xpath=//input[@id='primerNombre']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "de9216a6-b72a-4c66-9bde-28e298ddadbd",
+      "comment": "",
+      "command": "type",
+      "target": "id=segundoNombre",
+      "targets": [
+        ["id=segundoNombre", "id"],
+        ["name=segundoNombre", "name"],
+        ["css=#segundoNombre", "css:finder"],
+        ["xpath=//input[@id='segundoNombre']", "xpath:attributes"],
+        ["xpath=//div[2]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "811c7abf-95f4-4c19-a80f-f0625deed7c3",
+      "comment": "",
+      "command": "type",
+      "target": "id=primerApellido",
+      "targets": [
+        ["id=primerApellido", "id"],
+        ["name=primerApellido", "name"],
+        ["css=#primerApellido", "css:finder"],
+        ["xpath=//input[@id='primerApellido']", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "40e3e18b-89c1-468c-84b2-de39a298cebb",
+      "comment": "",
+      "command": "type",
+      "target": "id=segundoApellido",
+      "targets": [
+        ["id=segundoApellido", "id"],
+        ["name=segundoApellido", "name"],
+        ["css=#segundoApellido", "css:finder"],
+        ["xpath=//input[@id='segundoApellido']", "xpath:attributes"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "19e7cf67-b580-4eb8-b558-08c22b7f9610",
+      "comment": "",
+      "command": "type",
+      "target": "id=fechaNacimiento",
+      "targets": [
+        ["id=fechaNacimiento", "id"],
+        ["name=fechaNacimiento", "name"],
+        ["css=#fechaNacimiento", "css:finder"],
+        ["xpath=//input[@id='fechaNacimiento']", "xpath:attributes"],
+        ["xpath=//div[3]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "99bee5cf-d2ab-4169-a939-9477834d13f0",
+      "comment": "",
+      "command": "type",
+      "target": "id=correo",
+      "targets": [
+        ["id=correo", "id"],
+        ["name=correo", "name"],
+        ["css=#correo", "css:finder"],
+        ["xpath=//input[@id='correo']", "xpath:attributes"],
+        ["xpath=//div[3]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5bb9a859-1b03-40a9-8c07-7f7bc4aece8e",
+      "comment": "",
+      "command": "type",
+      "target": "id=clave",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c2bd5fe7-a81c-49e1-8e76-ddadf020bc0e",
+      "comment": "",
+      "command": "type",
+      "target": "id=repetirClave",
+      "targets": [
+        ["id=repetirClave", "id"],
+        ["name=repetirClave", "name"],
+        ["css=#repetirClave", "css:finder"],
+        ["xpath=//input[@id='repetirClave']", "xpath:attributes"],
+        ["xpath=//div[4]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "85d00e30-c622-4bc4-9a4c-2cfc76e5c8d4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form__button",
+      "targets": [
+        ["css=.form__button", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Crear cuenta')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d9069698-eac8-49cf-9677-ad967891c733",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.form__invalid-text",
+      "targets": [
+        ["css=.form__row:nth-child(3) > .form__group:nth-child(1) > .form__invalid-text", "css:finder"],
+        ["xpath=//form/div[3]/div/span", "xpath:position"],
+        ["xpath=//span[contains(.,'La fecha de nacimiento es requerida.')]", "xpath:innerText"]
+      ],
+      "value": "5000"
+    }, {
+      "id": "ca9522a5-3c16-4ddc-80c5-9c18b0de4e2d",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.form__row:nth-child(1) > .form__group:nth-child(1) > .form__invalid-text",
+      "targets": [
+        ["css=.form__row:nth-child(1) > .form__group:nth-child(1) > .form__invalid-text", "css:finder"],
+        ["xpath=//form/div/div/span", "xpath:position"],
+        ["xpath=//span[contains(.,'El tipo de identificación es requerido.')]", "xpath:innerText"]
+      ],
+      "value": "El tipo de identificación es requerido."
+    }, {
+      "id": "c56c7085-42ff-404b-9553-4cef79c738c7",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.form__row:nth-child(1) > .form__group:nth-child(2) > .form__invalid-text",
+      "targets": [
+        ["css=.form__row:nth-child(1) > .form__group:nth-child(2) > .form__invalid-text", "css:finder"],
+        ["xpath=//div[2]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'El número de identificación es requerido.')]", "xpath:innerText"]
+      ],
+      "value": "El número de identificación es requerido."
+    }, {
+      "id": "72b0c2a0-72b9-447e-9294-a9ede40f549c",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.form__row:nth-child(2) > .form__group:nth-child(1) > .form__invalid-text",
+      "targets": [
+        ["css=.form__row:nth-child(2) > .form__group:nth-child(1) > .form__invalid-text", "css:finder"],
+        ["xpath=//div[2]/div/span", "xpath:position"],
+        ["xpath=//span[contains(.,'El primer nombre es requerido.')]", "xpath:innerText"]
+      ],
+      "value": "El primer nombre es requerido."
+    }, {
+      "id": "3071e68d-1f62-4061-8179-ea1662b26677",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.form__group:nth-child(3) > .form__invalid-text",
+      "targets": [
+        ["css=.form__group:nth-child(3) > .form__invalid-text", "css:finder"],
+        ["xpath=//div[3]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'El primer apellido es requerido.')]", "xpath:innerText"]
+      ],
+      "value": "El primer apellido es requerido."
+    }, {
+      "id": "030eb4c4-1fc8-4a70-8225-eda15b83112e",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.form__row:nth-child(3) > .form__group:nth-child(1) > .form__invalid-text",
+      "targets": [
+        ["css=.form__row:nth-child(3) > .form__group:nth-child(1) > .form__invalid-text", "css:finder"],
+        ["xpath=//div[3]/div/span", "xpath:position"],
+        ["xpath=//span[contains(.,'La fecha de nacimiento es requerida.')]", "xpath:innerText"]
+      ],
+      "value": "La fecha de nacimiento es requerida."
+    }, {
+      "id": "92469b2c-63cb-4407-b722-0a5d29fb58d7",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.form__row:nth-child(3) > .form__group:nth-child(2) > .form__invalid-text",
+      "targets": [
+        ["css=.form__row:nth-child(3) > .form__group:nth-child(2) > .form__invalid-text", "css:finder"],
+        ["xpath=//div[3]/div[2]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'El correo electrónico es requerido.')]", "xpath:innerText"]
+      ],
+      "value": "El correo electrónico es requerido."
+    }, {
+      "id": "e12b7289-f004-4504-82f9-7a8643c58a7b",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.form__row:nth-child(4) > .form__group:nth-child(1) > .form__invalid-text",
+      "targets": [
+        ["css=.form__row:nth-child(4) > .form__group:nth-child(1) > .form__invalid-text", "css:finder"],
+        ["xpath=//form/div[4]/div/span", "xpath:position"],
+        ["xpath=//span[contains(.,'La contraseña es requerida.')]", "xpath:innerText"]
+      ],
+      "value": "La contraseña es requerida."
+    }, {
+      "id": "747d944c-e2ca-46b0-9198-ed859936c141",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.form__row:nth-child(4) > .form__group:nth-child(2) > .form__invalid-text",
+      "targets": [
+        ["css=.form__row:nth-child(4) > .form__group:nth-child(2) > .form__invalid-text", "css:finder"],
+        ["xpath=//div[4]/div[2]/span", "xpath:position"]
+      ],
+      "value": "La contraseña es requerida."
+    }, {
+      "id": "cc8c0ef4-430a-4b21-96d2-ecb85b92c9f5",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.form__invalid-text:nth-child(6)",
+      "targets": [
+        ["css=.form__invalid-text:nth-child(6)", "css:finder"],
+        ["xpath=//form/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Se debe autorizar la Política de Tratamiento de Datos Personales.')]", "xpath:innerText"]
+      ],
+      "value": "Se debe autorizar la Política de Tratamiento de Datos Personales."
+    }, {
+      "id": "c4ec5fe3-b10f-43d8-ad3f-ea3901489147",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.form__invalid-text:nth-child(8)",
+      "targets": [
+        ["css=.form__invalid-text:nth-child(8)", "css:finder"],
+        ["xpath=//span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Se deben aceptar los Términos y Condiciones de Servicio.')]", "xpath:innerText"]
+      ],
+      "value": "Se deben aceptar los Términos y Condiciones de Servicio."
+    }]
+  }, {
+    "id": "3b3e4023-e6e0-4e68-9fff-95c145f78d9c",
+    "name": "Register with invalid data",
+    "commands": [{
+      "id": "1c38c357-b510-46a5-aa09-9a33cc514010",
+      "comment": "",
+      "command": "open",
+      "target": "https://f4y.vercel.app/register",
+      "targets": [],
+      "value": "5000"
+    }, {
+      "id": "88b4ddc4-23b0-48d6-9c95-938527577004",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "022746f8-1e4a-4da4-b573-2ba481eebcfb",
+      "comment": "",
+      "command": "select",
+      "target": "id=tipoIdentificacion",
+      "targets": [],
+      "value": "label=Cédula de ciudadanía"
+    }, {
+      "id": "5db73615-956e-4938-b7fd-966bee788d2a",
+      "comment": "",
+      "command": "type",
+      "target": "id=numeroIdentificacion",
+      "targets": [
+        ["id=numeroIdentificacion", "id"],
+        ["name=numeroIdentificacion", "name"],
+        ["css=#numeroIdentificacion", "css:finder"],
+        ["xpath=//input[@id='numeroIdentificacion']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "111"
+    }, {
+      "id": "32b62c39-4acc-49cb-a843-d76e7bb7025e",
+      "comment": "",
+      "command": "type",
+      "target": "id=primerNombre",
+      "targets": [
+        ["id=primerNombre", "id"],
+        ["name=primerNombre", "name"],
+        ["css=#primerNombre", "css:finder"],
+        ["xpath=//input[@id='primerNombre']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "111"
+    }, {
+      "id": "94a67a66-f6a2-405f-899e-c3d7bbd4a725",
+      "comment": "",
+      "command": "type",
+      "target": "id=segundoNombre",
+      "targets": [
+        ["id=segundoNombre", "id"],
+        ["name=segundoNombre", "name"],
+        ["css=#segundoNombre", "css:finder"],
+        ["xpath=//input[@id='segundoNombre']", "xpath:attributes"],
+        ["xpath=//div[2]/div[2]/input", "xpath:position"]
+      ],
+      "value": "111"
+    }, {
+      "id": "2ab4550f-bc02-4dfe-b44f-7c8ad6e7c4be",
+      "comment": "",
+      "command": "type",
+      "target": "id=primerApellido",
+      "targets": [
+        ["id=primerApellido", "id"],
+        ["name=primerApellido", "name"],
+        ["css=#primerApellido", "css:finder"],
+        ["xpath=//input[@id='primerApellido']", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "111"
+    }, {
+      "id": "194e0aa7-c0aa-433c-8dd3-e17782628e9a",
+      "comment": "",
+      "command": "type",
+      "target": "id=segundoApellido",
+      "targets": [
+        ["id=segundoApellido", "id"],
+        ["name=segundoApellido", "name"],
+        ["css=#segundoApellido", "css:finder"],
+        ["xpath=//input[@id='segundoApellido']", "xpath:attributes"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "111"
+    }, {
+      "id": "be3ac25d-4578-45eb-bc5a-1d17eb8aefe5",
+      "comment": "",
+      "command": "type",
+      "target": "id=fechaNacimiento",
+      "targets": [
+        ["id=fechaNacimiento", "id"],
+        ["name=fechaNacimiento", "name"],
+        ["css=#fechaNacimiento", "css:finder"],
+        ["xpath=//input[@id='fechaNacimiento']", "xpath:attributes"],
+        ["xpath=//div[3]/div/input", "xpath:position"]
+      ],
+      "value": "2100-12-31"
+    }, {
+      "id": "0682546f-0f8c-40ec-9d2a-44bb102c275c",
+      "comment": "",
+      "command": "type",
+      "target": "id=correo",
+      "targets": [
+        ["id=correo", "id"],
+        ["name=correo", "name"],
+        ["css=#correo", "css:finder"],
+        ["xpath=//input[@id='correo']", "xpath:attributes"],
+        ["xpath=//div[3]/div[2]/input", "xpath:position"]
+      ],
+      "value": "111"
+    }, {
+      "id": "7ffed761-12f4-4fa5-b553-9108559ac164",
+      "comment": "",
+      "command": "type",
+      "target": "id=clave",
+      "targets": [],
+      "value": "111"
+    }, {
+      "id": "71d78743-509e-48dd-b896-30060907d385",
+      "comment": "",
+      "command": "type",
+      "target": "id=repetirClave",
+      "targets": [
+        ["id=repetirClave", "id"],
+        ["name=repetirClave", "name"],
+        ["css=#repetirClave", "css:finder"],
+        ["xpath=//input[@id='repetirClave']", "xpath:attributes"],
+        ["xpath=//div[4]/div[2]/input", "xpath:position"]
+      ],
+      "value": "111"
+    }, {
+      "id": "6ab8e9ff-8ea2-4bd1-8029-4d6576bf0e13",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form__button",
+      "targets": [
+        ["css=.form__button", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Crear cuenta')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e7c2afcf-a70f-4506-b343-6ec992a57ae4",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.form__invalid-text",
+      "targets": [
+        ["css=.form__row:nth-child(3) > .form__group:nth-child(1) > .form__invalid-text", "css:finder"],
+        ["xpath=//form/div[3]/div/span", "xpath:position"],
+        ["xpath=//span[contains(.,'La fecha de nacimiento es requerida.')]", "xpath:innerText"]
+      ],
+      "value": "5000"
+    }, {
+      "id": "e0810f9b-8a56-47d9-b501-b8c25dcd5a5c",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.form__row:nth-child(3) > .form__group:nth-child(1) > .form__invalid-text",
+      "targets": [
+        ["css=.form__row:nth-child(3) > .form__group:nth-child(1) > .form__invalid-text", "css:finder"],
+        ["xpath=//div[3]/div/span", "xpath:position"],
+        ["xpath=//span[contains(.,'La fecha de nacimiento es requerida.')]", "xpath:innerText"]
+      ],
+      "value": "La fecha de nacimiento es requerida."
+    }, {
+      "id": "55bb261e-31f1-4ce0-b73a-ae3f111ea314",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.form__group:nth-child(2) > .form__invalid-text",
+      "targets": [
+        ["css=.form__group:nth-child(2) > .form__invalid-text", "css:finder"],
+        ["xpath=//div[2]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'El correo electrónico debe tener un formato válido (someone@example.com).')]", "xpath:innerText"]
+      ],
+      "value": "El correo electrónico debe tener un formato válido (someone@example.com)."
+    }, {
+      "id": "28061c93-1a22-46d9-829d-babd4ee7eee2",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.form__row:nth-child(4) .form__invalid-text",
+      "targets": [
+        ["css=.form__row:nth-child(4) .form__invalid-text", "css:finder"],
+        ["xpath=//form/div[4]/div/span", "xpath:position"],
+        ["xpath=//span[contains(.,'La contraseña debe tener mínimo 1 letra minúscula, 1 letra mayúscula, 1 número y 1 caracter especial.')]", "xpath:innerText"]
+      ],
+      "value": "La contraseña debe tener mínimo 1 letra minúscula, 1 letra mayúscula, 1 número y 1 caracter especial."
+    }, {
+      "id": "167e7618-8c6d-4705-89cd-5b23f70a1a97",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.form__invalid-text:nth-child(6)",
+      "targets": [
+        ["css=.form__invalid-text:nth-child(6)", "css:finder"],
+        ["xpath=//form/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Se debe autorizar la Política de Tratamiento de Datos Personales.')]", "xpath:innerText"]
+      ],
+      "value": "Se debe autorizar la Política de Tratamiento de Datos Personales."
+    }, {
+      "id": "366f0fe3-5e2c-452f-904d-43328315b08d",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.form__invalid-text:nth-child(8)",
+      "targets": [
+        ["css=.form__invalid-text:nth-child(8)", "css:finder"],
+        ["xpath=//span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Se deben aceptar los Términos y Condiciones de Servicio.')]", "xpath:innerText"]
+      ],
+      "value": "Se deben aceptar los Términos y Condiciones de Servicio."
+    }]
+  }, {
+    "id": "fc2a26fa-cc77-4b2f-8b05-eed5a80ea5c5",
+    "name": "Register with valid data",
+    "commands": [{
+      "id": "4200a530-70a1-4096-ba5c-ba5c5243a082",
+      "comment": "",
+      "command": "open",
+      "target": "https://f4y.vercel.app/register",
+      "targets": [],
+      "value": "5000"
+    }, {
+      "id": "fa52cdf9-0ef3-4328-818e-71cde914792c",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "088cbbda-157e-4e09-8de1-553ab7c901f0",
+      "comment": "",
+      "command": "select",
+      "target": "id=tipoIdentificacion",
+      "targets": [],
+      "value": "label=Cédula de ciudadanía"
+    }, {
+      "id": "fcd5306e-dfb0-446b-b56b-5713e223d98c",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return Math.floor(Math.random() * 9000000000) + 1000000000",
+      "targets": [],
+      "value": "cedulaRandom"
+    }, {
+      "id": "484eb245-c26c-4a86-816a-2d53a30283f1",
+      "comment": "",
+      "command": "type",
+      "target": "id=numeroIdentificacion",
+      "targets": [
+        ["id=numeroIdentificacion", "id"],
+        ["name=numeroIdentificacion", "name"],
+        ["css=#numeroIdentificacion", "css:finder"],
+        ["xpath=//input[@id='numeroIdentificacion']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${cedulaRandom}"
+    }, {
+      "id": "056aacc2-4533-4429-bb79-67a4f4a72d03",
+      "comment": "",
+      "command": "type",
+      "target": "id=primerNombre",
+      "targets": [
+        ["id=primerNombre", "id"],
+        ["name=primerNombre", "name"],
+        ["css=#primerNombre", "css:finder"],
+        ["xpath=//input[@id='primerNombre']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "Alfredo"
+    }, {
+      "id": "2ff0a40c-3805-42dc-a145-0f19a15b7376",
+      "comment": "",
+      "command": "type",
+      "target": "id=segundoNombre",
+      "targets": [
+        ["id=segundoNombre", "id"],
+        ["name=segundoNombre", "name"],
+        ["css=#segundoNombre", "css:finder"],
+        ["xpath=//input[@id='segundoNombre']", "xpath:attributes"],
+        ["xpath=//div[2]/div[2]/input", "xpath:position"]
+      ],
+      "value": "Andrés"
+    }, {
+      "id": "ccd105a8-115c-4c13-ad65-5d875698aa18",
+      "comment": "",
+      "command": "type",
+      "target": "id=primerApellido",
+      "targets": [
+        ["id=primerApellido", "id"],
+        ["name=primerApellido", "name"],
+        ["css=#primerApellido", "css:finder"],
+        ["xpath=//input[@id='primerApellido']", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "Zapata"
+    }, {
+      "id": "af4f0e74-3800-4f07-a652-f94a18f7a269",
+      "comment": "",
+      "command": "type",
+      "target": "id=segundoApellido",
+      "targets": [
+        ["id=segundoApellido", "id"],
+        ["name=segundoApellido", "name"],
+        ["css=#segundoApellido", "css:finder"],
+        ["xpath=//input[@id='segundoApellido']", "xpath:attributes"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "Sierra"
+    }, {
+      "id": "002cedc2-76cb-4c83-a69e-7ab41523867a",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=fechaNacimiento",
+      "targets": [],
+      "value": "01"
+    }, {
+      "id": "cae7c19b-6755-41c6-b697-47366b46a868",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return Math.random().toString(36).substring(2, 12)",
+      "targets": [],
+      "value": "correoRandom"
+    }, {
+      "id": "103146a9-00de-4ffe-8f1b-606f008b4a24",
+      "comment": "",
+      "command": "type",
+      "target": "id=correo",
+      "targets": [
+        ["id=correo", "id"],
+        ["name=correo", "name"],
+        ["css=#correo", "css:finder"],
+        ["xpath=//input[@id='correo']", "xpath:attributes"],
+        ["xpath=//div[3]/div[2]/input", "xpath:position"]
+      ],
+      "value": "${correoRandom}@gmail.com"
+    }, {
+      "id": "4a65d626-ffe4-4149-8092-b52b5937976d",
+      "comment": "",
+      "command": "type",
+      "target": "id=clave",
+      "targets": [],
+      "value": "123abcDEF-"
+    }, {
+      "id": "b80085f1-4aa2-4492-a361-49a7b5b671d8",
+      "comment": "",
+      "command": "type",
+      "target": "id=repetirClave",
+      "targets": [
+        ["id=repetirClave", "id"],
+        ["name=repetirClave", "name"],
+        ["css=#repetirClave", "css:finder"],
+        ["xpath=//input[@id='repetirClave']", "xpath:attributes"],
+        ["xpath=//div[4]/div[2]/input", "xpath:position"]
+      ],
+      "value": "123abcDEF-"
+    }, {
+      "id": "eaec6e81-0500-40ee-b583-209453b2d4ee",
+      "comment": "",
+      "command": "click",
+      "target": "id=tratamientoDatos",
+      "targets": [
+        ["id=tratamientoDatos", "id"],
+        ["name=tratamientoDatos", "name"],
+        ["css=#tratamientoDatos", "css:finder"],
+        ["xpath=//input[@id='tratamientoDatos']", "xpath:attributes"],
+        ["xpath=//label/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9edf201e-e3a4-4d70-bd89-6bc5bc798bc3",
+      "comment": "",
+      "command": "click",
+      "target": "id=tyc",
+      "targets": [
+        ["id=tyc", "id"],
+        ["name=tyc", "name"],
+        ["css=#tyc", "css:finder"],
+        ["xpath=//input[@id='tyc']", "xpath:attributes"],
+        ["xpath=//label[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3fc11934-cbd5-4846-b462-f439613e524b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form__button",
+      "targets": [
+        ["css=.form__button", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Crear cuenta')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "151498f7-a5bd-44ca-abc4-867abbb89fe6",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.swal2-popup",
+      "targets": [
+        ["css=.swal2-popup", "css:finder"],
+        ["xpath=//div[3]/div", "xpath:position"]
+      ],
+      "value": "5000"
+    }, {
+      "id": "93bf53c4-5eba-4a41-bb1d-43782f194e26",
+      "comment": "",
+      "command": "verifyText",
+      "target": "id=swal2-html-container",
+      "targets": [
+        ["id=swal2-html-container", "id"],
+        ["css=#swal2-html-container", "css:finder"],
+        ["xpath=//div[@id='swal2-html-container']", "xpath:attributes"],
+        ["xpath=//div[4]/div/div[2]", "xpath:position"]
+      ],
+      "value": "Cuenta creada correctamente. Ya puedes iniciar sesión."
+    }]
+  }, {
+    "id": "6b841855-8c1d-4ac6-a348-69a021963e4b",
+    "name": "Login without data",
+    "commands": [{
+      "id": "3a0e7dd3-2308-4ccd-a484-58d194a1a6d5",
+      "comment": "",
+      "command": "open",
+      "target": "https://f4y.vercel.app/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8a0557e6-bdb4-4d71-8ab7-d713481efa97",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1dd495b0-4abf-42dc-8acd-225c501650ad",
+      "comment": "",
+      "command": "type",
+      "target": "id=tipoIdentificacion",
+      "targets": [
+        ["id=tipoIdentificacion", "id"],
+        ["name=tipoIdentificacion", "name"],
+        ["css=#tipoIdentificacion", "css:finder"],
+        ["xpath=//select[@id='tipoIdentificacion']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0d296b4f-a72a-4419-9d80-ed1a0e3c6298",
+      "comment": "",
+      "command": "type",
+      "target": "id=numeroIdentificacion",
+      "targets": [
+        ["id=numeroIdentificacion", "id"],
+        ["name=numeroIdentificacion", "name"],
+        ["css=#numeroIdentificacion", "css:finder"],
+        ["xpath=//input[@id='numeroIdentificacion']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d24b2bf0-f909-43f3-9e11-66a52fe5aabd",
+      "comment": "",
+      "command": "type",
+      "target": "id=clave",
+      "targets": [
+        ["id=clave", "id"],
+        ["name=clave", "name"],
+        ["css=#clave", "css:finder"],
+        ["xpath=//input[@id='clave']", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8d5f6f37-a4b8-418c-bc21-b711482c4e6a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form__button",
+      "targets": [
+        ["css=.form__button", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Ingresar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d824ca63-f172-4c96-a31c-cfc169c040f1",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.form__invalid-text",
+      "targets": [
+        ["css=.form__group:nth-child(1) > .form__invalid-text", "css:finder"],
+        ["xpath=//form/div/span", "xpath:position"],
+        ["xpath=//span[contains(.,'El tipo de identificación es requerido.')]", "xpath:innerText"]
+      ],
+      "value": "5000"
+    }, {
+      "id": "c1c502bf-6b35-477a-9a94-dff47db2f35d",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.form__group:nth-child(1) > .form__invalid-text",
+      "targets": [
+        ["css=.form__group:nth-child(1) > .form__invalid-text", "css:finder"],
+        ["xpath=//form/div/span", "xpath:position"],
+        ["xpath=//span[contains(.,'El tipo de identificación es requerido.')]", "xpath:innerText"]
+      ],
+      "value": "El tipo de identificación es requerido."
+    }, {
+      "id": "ccd45d8f-3cbc-48ed-b809-240c081121b4",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.form__group:nth-child(2) > .form__invalid-text",
+      "targets": [
+        ["css=.form__group:nth-child(2) > .form__invalid-text", "css:finder"],
+        ["xpath=//div[2]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'El número de identificación es requerido.')]", "xpath:innerText"]
+      ],
+      "value": "El número de identificación es requerido."
+    }, {
+      "id": "0792f8ea-2369-4fb8-ae4a-55d3f5f89a58",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.form__group:nth-child(3) > .form__invalid-text",
+      "targets": [
+        ["css=.form__group:nth-child(3) > .form__invalid-text", "css:finder"],
+        ["xpath=//div[3]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'La contraseña es requerida.')]", "xpath:innerText"]
+      ],
+      "value": "La contraseña es requerida."
+    }]
+  }, {
+    "id": "a7cacdd8-9c16-49ec-a9ba-efa016aaeeac",
+    "name": "Login with invalid credentials",
+    "commands": [{
+      "id": "12deea8b-b1f6-4a40-88cf-856c987b98a8",
+      "comment": "",
+      "command": "open",
+      "target": "https://f4y.vercel.app/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1f47cf6e-7871-45f3-b791-d6d02cb97512",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "24b4bc09-c1dc-4ddc-b2d3-288b74f03146",
+      "comment": "",
+      "command": "select",
+      "target": "id=tipoIdentificacion",
+      "targets": [],
+      "value": "label=Cédula de ciudadanía"
+    }, {
+      "id": "3e8c2fe6-05dd-4c3d-9e3f-94b2f4778004",
+      "comment": "",
+      "command": "type",
+      "target": "id=numeroIdentificacion",
+      "targets": [
+        ["id=numeroIdentificacion", "id"],
+        ["name=numeroIdentificacion", "name"],
+        ["css=#numeroIdentificacion", "css:finder"],
+        ["xpath=//input[@id='numeroIdentificacion']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "111"
+    }, {
+      "id": "b3c64952-b328-41cb-89a4-1cb300072122",
+      "comment": "",
+      "command": "type",
+      "target": "id=clave",
+      "targets": [
+        ["id=clave", "id"],
+        ["name=clave", "name"],
+        ["css=#clave", "css:finder"],
+        ["xpath=//input[@id='clave']", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "111"
+    }, {
+      "id": "1b33f229-8399-4a0d-aa64-03f0335ee596",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form__button",
+      "targets": [
+        ["css=.form__button", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Ingresar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2eaa4c7e-4987-4681-8e65-9c3e431b31d2",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.swal2-popup",
+      "targets": [
+        ["css=.swal2-popup", "css:finder"],
+        ["xpath=//div[3]/div", "xpath:position"]
+      ],
+      "value": "5000"
+    }, {
+      "id": "b4e36c45-d62e-4bca-9d72-07792dec4cf8",
+      "comment": "",
+      "command": "verifyText",
+      "target": "id=swal2-html-container",
+      "targets": [
+        ["id=swal2-html-container", "id"],
+        ["css=#swal2-html-container", "css:finder"],
+        ["xpath=//div[@id='swal2-html-container']", "xpath:attributes"],
+        ["xpath=//div[4]/div/div[2]", "xpath:position"]
+      ],
+      "value": "La identificación no pertenece a ninguna cuenta existente."
+    }]
+  }, {
+    "id": "9b6b739b-f15c-4c85-ad36-f9f1e19f384b",
+    "name": "Login with valid credentials",
+    "commands": [{
+      "id": "07b3826f-1cc5-4c9a-92a7-aad4ad2cd332",
+      "comment": "",
+      "command": "open",
+      "target": "https://f4y.vercel.app/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d9246457-7e4b-4c84-b61e-665f5ee638c6",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "85339c7e-8c12-4639-893d-68f961293d12",
+      "comment": "",
+      "command": "select",
+      "target": "id=tipoIdentificacion",
+      "targets": [],
+      "value": "label=Cédula de ciudadanía"
+    }, {
+      "id": "2661d733-2b08-4da5-8ac0-b03e00ce61e2",
+      "comment": "",
+      "command": "type",
+      "target": "id=numeroIdentificacion",
+      "targets": [
+        ["id=numeroIdentificacion", "id"],
+        ["name=numeroIdentificacion", "name"],
+        ["css=#numeroIdentificacion", "css:finder"],
+        ["xpath=//input[@id='numeroIdentificacion']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "1001025610"
+    }, {
+      "id": "e992b8df-656c-4c09-b59e-e0a2cff5f3d9",
+      "comment": "",
+      "command": "type",
+      "target": "id=clave",
+      "targets": [
+        ["id=clave", "id"],
+        ["name=clave", "name"],
+        ["css=#clave", "css:finder"],
+        ["xpath=//input[@id='clave']", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "123abcDEF-"
+    }, {
+      "id": "14d0ee10-efb4-437c-8caf-89c566764c29",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form__button",
+      "targets": [
+        ["css=.form__button", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Ingresar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0be2c5d7-cc5f-4852-bbdb-b8f7e3ac7247",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.swal2-popup",
+      "targets": [
+        ["css=.swal2-popup", "css:finder"],
+        ["xpath=//div[3]/div", "xpath:position"]
+      ],
+      "value": "5000"
+    }, {
+      "id": "fe6c9379-93ba-4181-b15a-7ab5637b3c34",
+      "comment": "",
+      "command": "verifyText",
+      "target": "id=swal2-html-container",
+      "targets": [
+        ["id=swal2-html-container", "id"],
+        ["css=#swal2-html-container", "css:finder"],
+        ["xpath=//div[@id='swal2-html-container']", "xpath:attributes"],
+        ["xpath=//div[4]/div/div[2]", "xpath:position"]
+      ],
+      "value": "Sesión iniciada correctamente."
+    }]
+  }, {
+    "id": "3f6ca4c5-ecc2-438d-a384-25a0a2404a10",
+    "name": "Unload savings account",
+    "commands": [{
+      "id": "a193b2b2-3b5f-40bf-9a03-a913605a4dbf",
+      "comment": "",
+      "command": "open",
+      "target": "https://f4y.vercel.app/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bf2bba37-7ed8-4d01-9b8a-6d74895991d5",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a92d2722-cc05-47ba-9ad1-29387965dc03",
+      "comment": "",
+      "command": "select",
+      "target": "id=tipoIdentificacion",
+      "targets": [],
+      "value": "label=Cédula de ciudadanía"
+    }, {
+      "id": "ab8986f8-aa5d-410f-bc5c-947da038139e",
+      "comment": "",
+      "command": "type",
+      "target": "id=numeroIdentificacion",
+      "targets": [
+        ["id=numeroIdentificacion", "id"],
+        ["name=numeroIdentificacion", "name"],
+        ["css=#numeroIdentificacion", "css:finder"],
+        ["xpath=//input[@id='numeroIdentificacion']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "1001025610"
+    }, {
+      "id": "355407aa-ea53-436e-8f0c-f397cba07cb1",
+      "comment": "",
+      "command": "type",
+      "target": "id=clave",
+      "targets": [
+        ["id=clave", "id"],
+        ["name=clave", "name"],
+        ["css=#clave", "css:finder"],
+        ["xpath=//input[@id='clave']", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "123abcDEF-"
+    }, {
+      "id": "d9a8ed50-6c7e-45c9-bbcd-7c5272f7a59a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form__button",
+      "targets": [
+        ["css=.form__button", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Ingresar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1cba073c-5570-4fa3-9f1c-60def9d39ca0",
+      "comment": "",
+      "command": "pause",
+      "target": "5000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "57d9c4af-e5ff-4b6e-bce2-ad74aa728328",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Aceptar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f9facb75-bf00-45cb-851d-77f49307a796",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Cuenta de ahorros",
+      "targets": [
+        ["linkText=Cuenta de ahorros", "linkText"],
+        ["css=.menu__option:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(@href, '/panel/savings')]", "xpath:href"],
+        ["xpath=//app-home/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Cuenta de ahorros')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5422046b-e2c1-4fce-b070-cd5067e12743",
+      "comment": "",
+      "command": "pause",
+      "target": "5000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3a702609-5cab-4814-8b93-e98b61a15b9f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.account__card__button--unload",
+      "targets": [
+        ["css=.account__card__button--unload", "css:finder"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Descargar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "847a756a-5b3b-488a-9c03-d94cc9c3722b",
+      "comment": "",
+      "command": "type",
+      "target": "id=cuenta",
+      "targets": [
+        ["id=cuenta", "id"],
+        ["name=cuenta", "name"],
+        ["css=#cuenta", "css:finder"],
+        ["xpath=//input[@id='cuenta']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "3011442274"
+    }, {
+      "id": "cb516e40-b22b-4911-9d38-9f88bf70980f",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=monto",
+      "targets": [],
+      "value": "50000"
+    }, {
+      "id": "855be0e5-d09c-4f63-ad72-f5f85a6c3bcd",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form__button",
+      "targets": [
+        ["css=.form__button", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Descargar saldo')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "81625cb8-170a-4c77-bb7c-8e9fa0136147",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.dialog--success",
+      "targets": [
+        ["css=.dialog__header", "css:finder"],
+        ["xpath=//app-savings-unload-success/div/div/div", "xpath:position"]
+      ],
+      "value": "5000"
+    }, {
+      "id": "d5f00372-9b82-4a61-9168-ab0ae218a5b5",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.dialog__title",
+      "targets": [
+        ["css=.dialog__title", "css:finder"],
+        ["xpath=//h4", "xpath:position"],
+        ["xpath=//h4[contains(.,'¡Transferencia satisfactoria!')]", "xpath:innerText"]
+      ],
+      "value": "¡Transferencia satisfactoria!"
+    }, {
+      "id": "7964ef15-b1ab-454b-b2c6-abd4f2afe265",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.dialog__subtitle",
+      "targets": [
+        ["css=.dialog__subtitle", "css:finder"],
+        ["xpath=//h5", "xpath:position"],
+        ["xpath=//h5[contains(.,'Descarga desde cuenta')]", "xpath:innerText"]
+      ],
+      "value": "Descarga desde cuenta"
+    }, {
+      "id": "d3af134e-e76d-46b8-afb1-dff0765c54be",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.dialog__detail:nth-child(5) > .dialog__detail__info",
+      "targets": [
+        ["css=.dialog__detail:nth-child(5) > .dialog__detail__info", "css:finder"],
+        ["xpath=//div[4]/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'3011442274')]", "xpath:innerText"]
+      ],
+      "value": "3011442274"
+    }, {
+      "id": "d86db3ea-18de-48c3-bb94-24ad1691aa6e",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.dialog__detail:nth-child(6) > .dialog__detail__info",
+      "targets": [
+        ["css=.dialog__detail:nth-child(6) > .dialog__detail__info", "css:finder"],
+        ["xpath=//div[5]/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'$ 50.000,00')]", "xpath:innerText"]
+      ],
+      "value": "$ 50.000,00"
+    }]
+  }, {
+    "id": "109b6405-84a6-4754-8b0a-9c122e812350",
+    "name": "Create pocket",
+    "commands": [{
+      "id": "8c5dc82a-b05d-4b92-904c-4531488ad7b6",
+      "comment": "",
+      "command": "open",
+      "target": "https://f4y.vercel.app/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9cb8a524-e628-40e9-8316-fe25085fec79",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "620acbc7-745b-440a-8b97-d41209e69966",
+      "comment": "",
+      "command": "select",
+      "target": "id=tipoIdentificacion",
+      "targets": [],
+      "value": "label=Cédula de ciudadanía"
+    }, {
+      "id": "f01523dd-9eaa-49a1-afa6-8a7317469f09",
+      "comment": "",
+      "command": "type",
+      "target": "id=numeroIdentificacion",
+      "targets": [
+        ["id=numeroIdentificacion", "id"],
+        ["name=numeroIdentificacion", "name"],
+        ["css=#numeroIdentificacion", "css:finder"],
+        ["xpath=//input[@id='numeroIdentificacion']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "1001025610"
+    }, {
+      "id": "168f49f1-e6e5-40ec-bdb8-e4f43701d0d7",
+      "comment": "",
+      "command": "type",
+      "target": "id=clave",
+      "targets": [
+        ["id=clave", "id"],
+        ["name=clave", "name"],
+        ["css=#clave", "css:finder"],
+        ["xpath=//input[@id='clave']", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "123abcDEF-"
+    }, {
+      "id": "b3fd3f35-47c7-4e17-89a4-141e6fd9f02d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form__button",
+      "targets": [
+        ["css=.form__button", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Ingresar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8b8410c0-5c0f-4404-8430-05a5da35557b",
+      "comment": "",
+      "command": "pause",
+      "target": "5000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6cd9d5c0-abac-4d3d-b13b-40839aea0c5d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Aceptar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cb78f12b-6c36-4e51-9363-6562702ad4c2",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Bolsillos",
+      "targets": [
+        ["linkText=Bolsillos", "linkText"],
+        ["css=.menu__option:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(@href, '/panel/pockets')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Bolsillos')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0ac7cdec-bbae-4146-bea0-9735cf3aa074",
+      "comment": "",
+      "command": "pause",
+      "target": "5000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a3dc8eb5-d380-405f-8585-3a938a31a70a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.pockets__item__add__button",
+      "targets": [
+        ["css=.pockets__item__add__button", "css:finder"],
+        ["xpath=//div[4]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0d78485e-2440-4a61-9f23-e7225cd1cf42",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return Math.random().toString(36).substring(2, 12)",
+      "targets": [],
+      "value": "nombreRandom"
+    }, {
+      "id": "1a5125c4-759b-4d7b-96fc-fe9bf3d18d24",
+      "comment": "",
+      "command": "type",
+      "target": "id=nombre",
+      "targets": [
+        ["id=nombre", "id"],
+        ["name=nombre", "name"],
+        ["css=#nombre", "css:finder"],
+        ["xpath=//input[@id='nombre']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${nombreRandom}"
+    }, {
+      "id": "03f76bd5-1189-49be-aeaa-91f8f538ce6c",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=saldoObjetivo",
+      "targets": [
+        ["id=saldoObjetivo", "id"],
+        ["name=saldoObjetivo", "name"],
+        ["css=#saldoObjetivo", "css:finder"],
+        ["xpath=//input[@id='saldoObjetivo']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "500000"
+    }, {
+      "id": "bc3caba1-b2b3-44c8-bef8-6de56b75fb25",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form__button",
+      "targets": [
+        ["css=.form__button", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Descargar saldo')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a7e6fa0f-15f9-449d-a9bf-340e79c26362",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.swal2-popup",
+      "targets": [
+        ["css=.swal2-popup", "css:finder"],
+        ["xpath=//body/div[3]/div", "xpath:position"]
+      ],
+      "value": "5000"
+    }, {
+      "id": "3ffd9c04-5b8a-472b-adb4-ae65f60e0613",
+      "comment": "",
+      "command": "verifyText",
+      "target": "id=swal2-html-container",
+      "targets": [
+        ["id=swal2-html-container", "id"],
+        ["css=#swal2-html-container", "css:finder"],
+        ["xpath=//div[@id='swal2-html-container']", "xpath:attributes"],
+        ["xpath=//body/div[4]/div/div[2]", "xpath:position"]
+      ],
+      "value": "¡El bolsillo ha sido creado correctamente!"
+    }]
+  }, {
+    "id": "01da299c-5d92-41c8-8127-056261cc4556",
+    "name": "Load pocket",
+    "commands": [{
+      "id": "d06feb43-4c2b-4bf3-b727-35be27be1308",
+      "comment": "",
+      "command": "open",
+      "target": "https://f4y.vercel.app/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9925e6a6-1637-4141-bb94-f77be37e3d73",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "159d4da1-f595-45d9-894f-f7ebc24f8e15",
+      "comment": "",
+      "command": "select",
+      "target": "id=tipoIdentificacion",
+      "targets": [],
+      "value": "label=Cédula de ciudadanía"
+    }, {
+      "id": "26a97742-0c4e-4ae8-bb1f-436673943195",
+      "comment": "",
+      "command": "type",
+      "target": "id=numeroIdentificacion",
+      "targets": [
+        ["id=numeroIdentificacion", "id"],
+        ["name=numeroIdentificacion", "name"],
+        ["css=#numeroIdentificacion", "css:finder"],
+        ["xpath=//input[@id='numeroIdentificacion']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "1001025610"
+    }, {
+      "id": "ce2d22c2-5d17-4ab3-92c1-b599c4a48bb3",
+      "comment": "",
+      "command": "type",
+      "target": "id=clave",
+      "targets": [
+        ["id=clave", "id"],
+        ["name=clave", "name"],
+        ["css=#clave", "css:finder"],
+        ["xpath=//input[@id='clave']", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "123abcDEF-"
+    }, {
+      "id": "d2555379-0693-4f86-b1e2-77ef29f0e97e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form__button",
+      "targets": [
+        ["css=.form__button", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Ingresar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "51120a4b-e418-4368-a545-16a22c16ec9f",
+      "comment": "",
+      "command": "pause",
+      "target": "5000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9af25351-040f-4820-b49b-b868ac8e7231",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal2-confirm",
+      "targets": [
+        ["css=.swal2-confirm", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Aceptar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "aadf847c-3eab-4f3f-8a85-27247e14040c",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Bolsillos",
+      "targets": [
+        ["linkText=Bolsillos", "linkText"],
+        ["css=.menu__option:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(@href, '/panel/pockets')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Bolsillos')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cf0e2295-2a21-4c36-895d-80950a0f6fc2",
+      "comment": "",
+      "command": "pause",
+      "target": "5000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5b4549da-1d31-4573-a27f-67a55ba7088b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.pockets__item:nth-child(4) .pockets__item__options__button:nth-child(2)",
+      "targets": [
+        ["css=.pockets__item:nth-child(4) .pockets__item__options__button:nth-child(2)", "css:finder"],
+        ["xpath=//div[4]/div[3]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0b8d1969-6a98-4c48-99b6-e7ed9e323aa8",
+      "comment": "",
+      "command": "select",
+      "target": "id=tipo",
+      "targets": [],
+      "value": "label=Carga desde cuenta hacia bolsillo"
+    }, {
+      "id": "09291f9d-a90a-4de1-ad1f-a411684f2433",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=monto",
+      "targets": [],
+      "value": "50000"
+    }, {
+      "id": "c450be7e-de9a-4d8b-9d03-927bdf00f451",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form__button",
+      "targets": [
+        ["css=.form__button", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Transferir')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e32f3fa7-172c-428f-839c-ca156aa7d44a",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.dialog--success",
+      "targets": [
+        ["css=.dialog__header", "css:finder"],
+        ["xpath=//app-savings-unload-success/div/div/div", "xpath:position"]
+      ],
+      "value": "5000"
+    }, {
+      "id": "fe29e08f-4028-437b-83a5-c283628c19a6",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.dialog__title",
+      "targets": [
+        ["css=.dialog__title", "css:finder"],
+        ["xpath=//h4", "xpath:position"],
+        ["xpath=//h4[contains(.,'¡Transferencia satisfactoria!')]", "xpath:innerText"]
+      ],
+      "value": "¡Transferencia satisfactoria!"
+    }, {
+      "id": "c4d79e70-916d-4433-b6b7-143659b55b42",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.dialog__subtitle",
+      "targets": [
+        ["css=.dialog__subtitle", "css:finder"],
+        ["xpath=//h5", "xpath:position"],
+        ["xpath=//h5[contains(.,'Carga a bolsillo')]", "xpath:innerText"]
+      ],
+      "value": "Carga a bolsillo"
+    }, {
+      "id": "1f381581-ed19-4e11-b627-01d4736b61fe",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.dialog__detail:nth-child(5) > .dialog__detail__info",
+      "targets": [
+        ["css=.dialog__detail:nth-child(5) > .dialog__detail__info", "css:finder"],
+        ["xpath=//div[4]/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'$ 50.000,00')]", "xpath:innerText"]
+      ],
+      "value": "$ 50.000,00"
+    }]
+  }],
+  "suites": [{
+    "id": "7d4af5a9-ab14-41a0-8a26-5e7bc2c482a3",
+    "name": "Register",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["6fc2aa12-39bb-47df-9fbe-2aeca6c46d80", "fc2a26fa-cc77-4b2f-8b05-eed5a80ea5c5", "3b3e4023-e6e0-4e68-9fff-95c145f78d9c"]
+  }, {
+    "id": "473f4862-b073-4569-8533-fb8e8f49ca97",
+    "name": "Login",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["a7cacdd8-9c16-49ec-a9ba-efa016aaeeac", "9b6b739b-f15c-4c85-ad36-f9f1e19f384b", "6b841855-8c1d-4ac6-a348-69a021963e4b"]
+  }],
+  "urls": ["https://f4y.vercel.app/register", "https://f4y.vercel.app/login"],
+  "plugins": []
+}

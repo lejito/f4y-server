@@ -1,0 +1,965 @@
+{
+  "id": "f2cc77af-92dc-4cf2-ae82-f627372b433d",
+  "version": "2.0",
+  "name": "tech_interview_handbook",
+  "url": "https://www.techinterviewhandbook.org/grind75?weeks=0&hours=0",
+  "tests": [{
+    "id": "47097c98-5aff-4013-9c1e-2401103a333c",
+    "name": "[C01] Buscar un contenido: \"self introduction\" ",
+    "commands": [{
+      "id": "ade6728c-4774-4774-970b-ffe2ecf88e9e",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.techinterviewhandbook.org/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "64e3d4fd-fdae-498c-adbc-6482e9da9292",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5c09f71c-ddd9-4cbc-87ff-cfe121028443",
+      "comment": "",
+      "command": "click",
+      "target": "css=.DocSearch-Button-Placeholder",
+      "targets": [
+        ["css=.DocSearch-Button-Placeholder", "css:finder"],
+        ["xpath=//div[@id='__docusaurus']/nav/div/div[2]/div[2]/button/span/span", "xpath:idRelative"],
+        ["xpath=//span/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ed05c3d4-a0bf-4d56-9247-4c4b5c2a68b6",
+      "comment": "",
+      "command": "type",
+      "target": "id=docsearch-input",
+      "targets": [
+        ["id=docsearch-input", "id"],
+        ["css=#docsearch-input", "css:finder"],
+        ["xpath=//input[@id='docsearch-input']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "self introduction"
+    }, {
+      "id": "e8c9a7a7-e9db-4901-b6aa-cd00934d20e3",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=docsearch-input",
+      "targets": [
+        ["id=docsearch-input", "id"],
+        ["css=#docsearch-input", "css:finder"],
+        ["xpath=//input[@id='docsearch-input']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "e3c1f647-b430-43ee-aaa7-6a3030888a18",
+      "comment": "",
+      "command": "pause",
+      "target": "3000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b149af07-6ccb-4b0c-bafc-34efbcef3bd4",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "linkText=Check out GreatFrontEnd today",
+      "targets": [
+        ["linkText=Check out GreatFrontEnd today", "linkText"],
+        ["css=.content_L1uV > a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Check out GreatFrontEnd today')]", "xpath:link"],
+        ["xpath=//div[@id='__docusaurus']/div[3]/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://www.greatfrontend.com?utm_source=techinterviewhandbook&utm_medium=referral&utm_content=banner')]", "xpath:href"],
+        ["xpath=//div[3]/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Check out GreatFrontEnd today')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f5e3ff91-e9ef-4141-845e-d882a3c80169",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.breadcrumbs__item--active > .breadcrumbs__link",
+      "targets": [
+        ["css=.breadcrumbs__item--active > .breadcrumbs__link", "css:finder"],
+        ["xpath=//div[@id='__docusaurus']/div[3]/div/main/div/div/div/div/article/nav/ul/li[3]/span", "xpath:idRelative"],
+        ["xpath=//li[3]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Preparing a self introduction')]", "xpath:innerText"]
+      ],
+      "value": "Preparing a self introduction"
+    }]
+  }, {
+    "id": "f17fff02-1968-464d-9cd1-2515754e9086",
+    "name": "[C02] Buscar un contenido: \"matrix\"",
+    "commands": [{
+      "id": "5a9f5766-acc9-4d71-97e2-7bc5ee437cfc",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.techinterviewhandbook.org/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "97396be8-8988-46fe-bf18-a78e0e11f47d",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b4979a54-aa1a-4fdc-9ae9-0348040413b7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.DocSearch-Button-Placeholder",
+      "targets": [
+        ["css=.DocSearch-Button-Placeholder", "css:finder"],
+        ["xpath=//div[@id='__docusaurus']/nav/div/div[2]/div[2]/button/span/span", "xpath:idRelative"],
+        ["xpath=//span/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "38217685-f67e-4725-9ab0-a3c389f15feb",
+      "comment": "",
+      "command": "type",
+      "target": "id=docsearch-input",
+      "targets": [
+        ["id=docsearch-input", "id"],
+        ["css=#docsearch-input", "css:finder"],
+        ["xpath=//input[@id='docsearch-input']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "matrix"
+    }, {
+      "id": "4ad4401d-2372-4fd4-9ecb-314019d4b32a",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=docsearch-input",
+      "targets": [
+        ["id=docsearch-input", "id"],
+        ["css=#docsearch-input", "css:finder"],
+        ["xpath=//input[@id='docsearch-input']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "d8620bea-3655-4334-9f31-df8ffe290338",
+      "comment": "",
+      "command": "pause",
+      "target": "3000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "472ebaf7-f1f0-4b91-9949-2f87adf0e211",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "linkText=Check out GreatFrontEnd today",
+      "targets": [
+        ["linkText=Check out GreatFrontEnd today", "linkText"],
+        ["css=.content_L1uV > a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Check out GreatFrontEnd today')]", "xpath:link"],
+        ["xpath=//div[@id='__docusaurus']/div[3]/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://www.greatfrontend.com?utm_source=techinterviewhandbook&utm_medium=referral&utm_content=banner')]", "xpath:href"],
+        ["xpath=//div[3]/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Check out GreatFrontEnd today')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "de84a5a7-567a-4414-bffb-d252ddab3bcb",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.breadcrumbs__item--active > .breadcrumbs__link",
+      "targets": [
+        ["css=.breadcrumbs__item--active > .breadcrumbs__link", "css:finder"],
+        ["xpath=//div[@id='__docusaurus']/div[3]/div/main/div/div/div/div/article/nav/ul/li[4]/span", "xpath:idRelative"],
+        ["xpath=//li[4]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Matrix')]", "xpath:innerText"]
+      ],
+      "value": "Matrix"
+    }]
+  }, {
+    "id": "eef9a515-c59c-43bd-9e3c-77e7ee12fa12",
+    "name": "[C03] Buscar un contenido: (vacío)",
+    "commands": [{
+      "id": "db976d4d-743c-4f53-ae9b-82f8f38cdc66",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.techinterviewhandbook.org/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0c9f67f7-aa4e-42b3-be70-fbbb2c1c6381",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dd9619e2-3873-4ead-89ee-d4d9dbca6eb0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.DocSearch-Button-Placeholder",
+      "targets": [
+        ["css=.DocSearch-Button-Placeholder", "css:finder"],
+        ["xpath=//div[@id='__docusaurus']/nav/div/div[2]/div[2]/button/span/span", "xpath:idRelative"],
+        ["xpath=//span/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a971f491-ba13-4c6e-8d00-4cd09a8ab0fb",
+      "comment": "",
+      "command": "type",
+      "target": "id=docsearch-input",
+      "targets": [
+        ["id=docsearch-input", "id"],
+        ["css=#docsearch-input", "css:finder"],
+        ["xpath=//input[@id='docsearch-input']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4beaeb28-d414-4831-a46b-4aaf9747e7f3",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=docsearch-input",
+      "targets": [
+        ["id=docsearch-input", "id"],
+        ["css=#docsearch-input", "css:finder"],
+        ["xpath=//input[@id='docsearch-input']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "77ab9611-504e-4d64-b09a-679fc1a24cf6",
+      "comment": "",
+      "command": "pause",
+      "target": "3000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2d8cc716-6da9-43eb-892c-620466cfa64e",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "linkText=Check out GreatFrontEnd today",
+      "targets": [
+        ["linkText=Check out GreatFrontEnd today", "linkText"],
+        ["css=.content_L1uV > a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Check out GreatFrontEnd today')]", "xpath:link"],
+        ["xpath=//div[@id='__docusaurus']/div[3]/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://www.greatfrontend.com?utm_source=techinterviewhandbook&utm_medium=referral&utm_content=banner')]", "xpath:href"],
+        ["xpath=//div[3]/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Check out GreatFrontEnd today')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6aa2eddb-d9d1-48ed-8066-1bfe90b2d0d5",
+      "comment": "",
+      "command": "verifyElementNotPresent",
+      "target": "css=.docMainContainer_fv3b",
+      "targets": [
+        ["css=.padding-bottom--lg", "css:finder"],
+        ["xpath=//div[@id='__docusaurus']/div[3]/div/main/div", "xpath:idRelative"],
+        ["xpath=//main/div", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "5d81d44f-b0af-46e8-aced-d8a6963778ac",
+    "name": "[C04] Cambiar apariencia: de claro a oscuro",
+    "commands": [{
+      "id": "3fb780a5-e350-454a-b010-46dc9c887bb6",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.techinterviewhandbook.org/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "13b70fc6-97fc-40c5-867a-a3ddd5c8dc09",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "947f08fd-3be4-4690-a473-f660a6df8464",
+      "comment": "",
+      "command": "click",
+      "target": "css=.lightToggleIcon_Sxwe",
+      "targets": [
+        ["css=.lightToggleIcon_Sxwe", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "26740e9b-1710-4e3d-9860-d7874bd2a666",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return document.documentElement.getAttribute('data-theme');",
+      "targets": [],
+      "value": "tema"
+    }, {
+      "id": "07ed44ff-a08c-4f1c-87cd-858764995c77",
+      "comment": "",
+      "command": "assert",
+      "target": "tema",
+      "targets": [],
+      "value": "dark"
+    }]
+  }, {
+    "id": "8b21a733-74a1-4c99-96a3-e44e63a62211",
+    "name": "[C05] Cambiar apariencia: de oscuro a claro",
+    "commands": [{
+      "id": "566f9750-3465-4081-86a0-d8fe4d2140cf",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.techinterviewhandbook.org/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d17ef6eb-a5f3-4eb6-9c35-4acc38d0c367",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2ae4af9d-c9f4-4b7f-89bc-1ddb7c642c8c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.darkToggleIcon_Yem1",
+      "targets": [
+        ["css=.darkToggleIcon_Yem1", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "dbbf1c37-8fc1-4c39-9550-c7e9b959312f",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return document.documentElement.getAttribute('data-theme');",
+      "targets": [],
+      "value": "tema"
+    }, {
+      "id": "155257f6-a94f-4de2-a058-ba03b97a8480",
+      "comment": "",
+      "command": "assert",
+      "target": "tema",
+      "targets": [],
+      "value": "light"
+    }]
+  }, {
+    "id": "fc31816a-876d-47b5-9dad-32ae5b773abb",
+    "name": "[C06] Cambiar de contenido en el Handbook: \"Study and practice plan\"",
+    "commands": [{
+      "id": "f256086e-6d17-476c-8f88-616bbf1cf614",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.techinterviewhandbook.org/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "94564e0d-ee6d-4943-b6c0-fd051701583b",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "127898d3-8eb3-4b62-891a-eef9333704ff",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Start reading",
+      "targets": [
+        ["linkText=Start reading", "linkText"],
+        ["css=.navbar__item:nth-child(3)", "css:finder"],
+        ["xpath=//a[contains(text(),'Start reading')]", "xpath:link"],
+        ["xpath=//div[@id='__docusaurus']/nav/div/div/a[2]", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/software-engineering-interview-guide/')]", "xpath:href"],
+        ["xpath=//nav/div/div/a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Start reading')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "468a4555-9ffa-4f1d-bf74-7f61bec7520c",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Study and practice plan",
+      "targets": [
+        ["linkText=Study and practice plan", "linkText"],
+        ["css=.theme-doc-sidebar-item-category:nth-child(3) .theme-doc-sidebar-item-link:nth-child(3) > .menu__link", "css:finder"],
+        ["xpath=//a[contains(text(),'Study and practice plan')]", "xpath:link"],
+        ["xpath=//div[@id='__docusaurus']/div[3]/div/aside/div/nav/ul/li[3]/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/coding-interview-study-plan/')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Study and practice plan')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1cb057e5-2917-4a13-96fe-c923d0e39f87",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.breadcrumbs__item--active > .breadcrumbs__link",
+      "targets": [
+        ["css=.breadcrumbs__item--active > .breadcrumbs__link", "css:finder"],
+        ["xpath=//div[@id='__docusaurus']/div[3]/div/main/div/div/div/div/article/nav/ul/li[3]/span", "xpath:idRelative"],
+        ["xpath=//li[3]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Study and practice plan')]", "xpath:innerText"]
+      ],
+      "value": "Study and practice plan"
+    }]
+  }, {
+    "id": "31e235ab-c0bb-4191-911a-ab8b03bc1aa0",
+    "name": "[C07] Cambiar de contenido en el Handbook: \"Recursion\"",
+    "commands": [{
+      "id": "643003b0-58b4-475e-aa4a-950fe1a8c714",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.techinterviewhandbook.org/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "74c280ae-adaa-4d1d-9929-541b1af3a2c4",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9cc7873e-6611-4aa6-ae19-53d35db35a79",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Algorithms",
+      "targets": [
+        ["linkText=Start reading", "linkText"],
+        ["css=.navbar__item:nth-child(3)", "css:finder"],
+        ["xpath=//a[contains(text(),'Start reading')]", "xpath:link"],
+        ["xpath=//div[@id='__docusaurus']/nav/div/div/a[2]", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/software-engineering-interview-guide/')]", "xpath:href"],
+        ["xpath=//nav/div/div/a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Start reading')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d994bf1b-5e57-4411-882a-18a953860b2e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Recursion",
+      "targets": [
+        ["linkText=Study and practice plan", "linkText"],
+        ["css=.theme-doc-sidebar-item-category:nth-child(3) .theme-doc-sidebar-item-link:nth-child(3) > .menu__link", "css:finder"],
+        ["xpath=//a[contains(text(),'Study and practice plan')]", "xpath:link"],
+        ["xpath=//div[@id='__docusaurus']/div[3]/div/aside/div/nav/ul/li[3]/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/coding-interview-study-plan/')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Study and practice plan')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0a110de9-1c9a-4e4d-a0cd-0e83b199a5cb",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.breadcrumbs__item--active > .breadcrumbs__link",
+      "targets": [
+        ["css=.breadcrumbs__item--active > .breadcrumbs__link", "css:finder"],
+        ["xpath=//div[@id='__docusaurus']/div[3]/div/main/div/div/div/div/article/nav/ul/li[4]/span", "xpath:idRelative"],
+        ["xpath=//li[4]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Recursion')]", "xpath:innerText"]
+      ],
+      "value": "Recursion"
+    }]
+  }, {
+    "id": "b44da269-44a2-4a3b-9164-b4cc55337de1",
+    "name": "[C08] Elegir número de semanas de estudio: 10 semanas",
+    "commands": [{
+      "id": "92242644-d99e-417e-895b-18044498a19b",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.techinterviewhandbook.org/grind75?weeks=10",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a44c4af2-2a60-4aa6-a3a7-8790f26457cc",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d2b70189-e236-4566-a10f-66823727e622",
+      "comment": "",
+      "command": "storeXpathCount",
+      "target": "xpath=//div[@class='bg-gray-50 md:sticky md:top-0 py-4 z-10']/following-sibling::div[@class='space-y-4']/*",
+      "targets": [],
+      "value": "numeroDeElementos"
+    }, {
+      "id": "e7ef9895-a17a-41f4-97b4-408327a95de9",
+      "comment": "",
+      "command": "assert",
+      "target": "numeroDeElementos",
+      "targets": [],
+      "value": "10"
+    }]
+  }, {
+    "id": "9a6cecf4-aebd-4c46-b0c9-dff295feb152",
+    "name": "[C09] Elegir número de semanas de estudio: 16 semanas",
+    "commands": [{
+      "id": "cded2a7a-6b07-4429-a4a8-1798430fc09c",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.techinterviewhandbook.org/grind75?weeks=16",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c37463a2-382d-4c86-bd6e-f6c180172123",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2d405286-70ae-4168-814b-90c5946b3037",
+      "comment": "",
+      "command": "storeXpathCount",
+      "target": "xpath=//div[@class='bg-gray-50 md:sticky md:top-0 py-4 z-10']/following-sibling::div[@class='space-y-4']/*",
+      "targets": [],
+      "value": "numeroDeElementos"
+    }, {
+      "id": "099b6842-c1a4-4a31-8909-ae0f3e93ec71",
+      "comment": "",
+      "command": "assert",
+      "target": "numeroDeElementos",
+      "targets": [],
+      "value": "16"
+    }]
+  }, {
+    "id": "02d01251-bf6e-422d-9415-f4bdb927bc82",
+    "name": "[C10] Deseleccionar dificultad: \"Easy\"",
+    "commands": [{
+      "id": "cdd136a3-2933-4b0a-bf78-243cd75838bb",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.techinterviewhandbook.org/grind75",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5a2395b0-c1ef-423f-a521-985ffa6d0dfe",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0e34cdb0-36f0-48e2-a45e-2e5394469a20",
+      "comment": "",
+      "command": "click",
+      "target": "id=Easy",
+      "targets": [
+        ["id=Easy", "id"],
+        ["name=Easy", "name"],
+        ["css=#Easy", "css:finder"],
+        ["xpath=//input[@id='Easy']", "xpath:attributes"],
+        ["xpath=//div[@id='__next']/main/div/div/div/div/div/div/div/div/div[2]/div[2]/fieldset/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e3ffccec-a5a1-4ac0-9e14-1d580ba8bc38",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.text-sm > .text-emerald-500",
+      "targets": [
+        ["css=.text-sm > .text-emerald-500", "css:finder"],
+        ["xpath=//div[@id='__next']/main/div/div/div/div[2]/div[2]/div/div/div[2]/div/div/div[2]/div[2]/div/span", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Easy: 0')]", "xpath:innerText"]
+      ],
+      "value": "Easy: 0"
+    }]
+  }, {
+    "id": "3e85508a-322e-4bca-b383-8b955c7227d8",
+    "name": "[C11] Deseleccionar dificultad: \"Medium\"",
+    "commands": [{
+      "id": "dac40ffb-8b94-4ad2-8ea2-e2966788a0c9",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.techinterviewhandbook.org/grind75",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4e4b2dcd-bd1e-4d8f-890f-72c8331f6dff",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "48d14ca8-ad01-4569-9fbc-10071d51c488",
+      "comment": "",
+      "command": "click",
+      "target": "id=Medium",
+      "targets": [
+        ["id=Medium", "id"],
+        ["name=Medium", "name"],
+        ["css=#Medium", "css:finder"],
+        ["xpath=//input[@id='Medium']", "xpath:attributes"],
+        ["xpath=//div[@id='__next']/main/div/div/div/div/div/div/div/div/div[2]/div[2]/fieldset/div/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2b1350a2-2d87-4c95-9a7d-229511e5caf4",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.text-sm > .text-yellow-500",
+      "targets": [
+        ["css=.text-sm > .text-yellow-500", "css:finder"],
+        ["xpath=//div[@id='__next']/main/div/div/div/div[2]/div[2]/div/div/div[2]/div/div/div[2]/div[2]/div[2]/span", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div[2]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Medium: 91')]", "xpath:innerText"]
+      ],
+      "value": "Medium: 0"
+    }]
+  }, {
+    "id": "cbce5be7-996a-495b-a217-40c03f34db4c",
+    "name": "[C12] Deseleccionar dificultad: \"Hard\"",
+    "commands": [{
+      "id": "aa381afc-10ae-448b-a0a9-fd93fc5eac59",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.techinterviewhandbook.org/grind75",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "57bd9b19-198e-4a58-bb22-9c2074eaf87c",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f07f84fa-772b-489f-87c8-23721da07a12",
+      "comment": "",
+      "command": "click",
+      "target": "id=Hard",
+      "targets": [
+        ["id=Medium", "id"],
+        ["name=Medium", "name"],
+        ["css=#Medium", "css:finder"],
+        ["xpath=//input[@id='Medium']", "xpath:attributes"],
+        ["xpath=//div[@id='__next']/main/div/div/div/div/div/div/div/div/div[2]/div[2]/fieldset/div/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "062df665-1574-45d6-9b40-b301655c716d",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.text-sm > .text-red-500",
+      "targets": [
+        ["css=.text-sm > .text-red-500", "css:finder"],
+        ["xpath=//div[@id='__next']/main/div/div/div/div[2]/div[2]/div/div/div[2]/div/div/div[2]/div[2]/div[3]/span", "xpath:idRelative"],
+        ["xpath=//div[3]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Hard: 26')]", "xpath:innerText"]
+      ],
+      "value": "Hard: 0"
+    }]
+  }, {
+    "id": "985f56c3-9ffd-4abc-8832-ec3cd7e5ec70",
+    "name": "[C13] Ocultar/Mostrar temas de ejercicios: Ocultar",
+    "commands": [{
+      "id": "abf692b7-98b2-4cbe-b703-880a11b68a4c",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.techinterviewhandbook.org/grind75",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ca6fbfe3-657b-40eb-88e4-c3f11707c3a1",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "83221fae-4821-4395-94d2-a716743588c6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.px-3",
+      "targets": [
+        ["css=.px-3", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='__next']/main/div/div/div/div[2]/div[2]/div/div/div[2]/div[3]/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Hide topics')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9ab1b79e-44d0-46be-90b1-8c6b370bcf21",
+      "comment": "",
+      "command": "verifyElementNotPresent",
+      "target": "css=.bg-white:nth-child(1) > .border-x > .flex:nth-child(1) > .grow .inline-flex",
+      "targets": [
+        ["css=.bg-white:nth-child(1) > .border-x > .flex:nth-child(1) > .grow .inline-flex", "css:finder"],
+        ["xpath=//div[@id='__next']/main/div/div/div/div[2]/div[2]/div/div/div[2]/div[4]/div/div/div/div[2]/div[2]/span[5]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/span[5]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "8cbda80d-cd57-495c-8a07-e06335a579a3",
+    "name": "[C14] Ocultar/Mostrar temas de ejercicios: Mostrar",
+    "commands": [{
+      "id": "c39c370b-a67e-4ee7-88b7-c17e87a7410b",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.techinterviewhandbook.org/grind75",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "aa882f90-e115-4aee-a93e-95c8d2bd5148",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cd48df1c-8a94-4b72-9dc2-316c611fe1b9",
+      "comment": "",
+      "command": "click",
+      "target": "css=.px-3",
+      "targets": [
+        ["css=.px-3", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='__next']/main/div/div/div/div[2]/div[2]/div/div/div[2]/div[3]/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Hide topics')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e4986926-f34c-47cc-ac5f-32296832b6cd",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.bg-white:nth-child(1) > .border-x > .flex:nth-child(1) > .grow .inline-flex",
+      "targets": [
+        ["css=.bg-white:nth-child(1) > .border-x > .flex:nth-child(1) > .grow .inline-flex", "css:finder"],
+        ["xpath=//div[@id='__next']/main/div/div/div/div[2]/div[2]/div/div/div[2]/div[4]/div/div/div/div[2]/div[2]/span[5]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/span[5]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "306fdeb0-53e9-45db-bc23-ed5f5f56db51",
+    "name": "[C15] Cambiar el método de agrupamiento de ejercicios: Por semanas",
+    "commands": [{
+      "id": "f56c4b37-4d03-466a-b59e-9135d046837d",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.techinterviewhandbook.org/grind75",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "184aa96e-4180-4b71-84b0-b0cb29d31125",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "71bc606b-b8bb-4839-98fa-7c138dd5b09b",
+      "comment": "",
+      "command": "select",
+      "target": "id=questions_grouping",
+      "targets": [],
+      "value": "label=Group by Weeks"
+    }, {
+      "id": "ef72b87e-b149-494b-8ccb-7a60b6d3b5be",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.bg-white:nth-child(1) > .w-full h2",
+      "targets": [
+        ["css=.bg-white:nth-child(1) > .w-full h2", "css:finder"],
+        ["xpath=//div[@id='__next']/main/div/div/div/div[2]/div[2]/div/div/div[2]/div[4]/div/button/div/h2", "xpath:idRelative"],
+        ["xpath=//button/div/h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Week 1')]", "xpath:innerText"]
+      ],
+      "value": "Week 1"
+    }]
+  }, {
+    "id": "59b3260a-d161-461d-b74e-c49bb570b3e8",
+    "name": "[C16] Cambiar el método de agrupamiento de ejercicios: Por temas",
+    "commands": [{
+      "id": "b2735a3b-dddd-4d47-af23-3a6edf0006c3",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.techinterviewhandbook.org/grind75",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dea93290-cba7-4a5c-af94-e1e86516cbd6",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "088918c6-7067-4eb4-8651-b0d4070730ea",
+      "comment": "",
+      "command": "select",
+      "target": "id=questions_grouping",
+      "targets": [],
+      "value": "label=Group by Topics"
+    }, {
+      "id": "c12e523d-98e8-44de-be6d-450bef2e9dff",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.bg-white:nth-child(1) > .w-full h2",
+      "targets": [
+        ["css=.bg-white:nth-child(1) > .w-full h2", "css:finder"],
+        ["xpath=//div[@id='__next']/main/div/div/div/div[2]/div[2]/div/div/div[2]/div[4]/div/button/div/h2", "xpath:idRelative"],
+        ["xpath=//button/div/h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Week 1')]", "xpath:innerText"]
+      ],
+      "value": "Array"
+    }]
+  }, {
+    "id": "42cf42ab-bf81-4393-b303-55c87eba6bb2",
+    "name": "[C17] Cambiar el método de agrupamiento de ejercicios: Por dificultad",
+    "commands": [{
+      "id": "c080bbbf-1ed3-4050-92ac-b8d603bf1411",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.techinterviewhandbook.org/grind75",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "64fb3780-111c-4c17-923e-22a5ec9d708e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "38aaa1a7-cfa4-4c55-b766-96fc1fa73da7",
+      "comment": "",
+      "command": "select",
+      "target": "id=questions_grouping",
+      "targets": [],
+      "value": "label=Group by Difficulty"
+    }, {
+      "id": "d37a589d-9a2b-4d80-a8b0-8ca9b4613312",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.bg-white:nth-child(1) > .w-full h2",
+      "targets": [
+        ["css=.bg-white:nth-child(1) > .w-full h2", "css:finder"],
+        ["xpath=//div[@id='__next']/main/div/div/div/div[2]/div[2]/div/div/div[2]/div[4]/div/button/div/h2", "xpath:idRelative"],
+        ["xpath=//button/div/h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Week 1')]", "xpath:innerText"]
+      ],
+      "value": "Easy"
+    }]
+  }, {
+    "id": "3ce9f5c0-acea-40ed-a38e-a4c795df7fbb",
+    "name": "[C18] Ver las horas totales de estudio requeridas: 10 semanas y 10 horas por semana",
+    "commands": [{
+      "id": "065efc4f-bd6c-46cb-8cf4-8c870b163755",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.techinterviewhandbook.org/grind75?weeks=10&hours=10",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "245963e0-875d-4052-8dd3-fe75914ddd21",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "20cbebc6-5714-41b2-a0ef-9b78074827e1",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.md\\3Atext-xl",
+      "targets": [
+        ["css=.md\\3Atext-xl", "css:finder"],
+        ["xpath=//div[@id='__next']/main/div/div/div/div[2]/div[2]/div/div/div[2]/div/div/div/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div[2]/div/div/div/div[2]/div", "xpath:position"]
+      ],
+      "value": "100 hours"
+    }]
+  }, {
+    "id": "04ed02e0-3f24-4b23-b1de-6fa332281433",
+    "name": "[C19] Ver las horas totales de estudio requeridas: 20 semanas y 4 horas por semana",
+    "commands": [{
+      "id": "3b45029f-5cfa-42e7-92da-adbda804a18b",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.techinterviewhandbook.org/grind75?weeks=20&hours=4",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a23a0040-d3f8-45dd-a8d7-1457fc690b07",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9badc64c-8064-4880-b9e0-264e025d998c",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.md\\3Atext-xl",
+      "targets": [
+        ["css=.md\\3Atext-xl", "css:finder"],
+        ["xpath=//div[@id='__next']/main/div/div/div/div[2]/div[2]/div/div/div[2]/div/div/div/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div[2]/div/div/div/div[2]/div", "xpath:position"]
+      ],
+      "value": "80 hours"
+    }]
+  }, {
+    "id": "653d2b36-928e-48dd-8c18-cf1452577a7c",
+    "name": "[C20] Ver las horas totales de estudio requeridas: 0 semanas y 0 horas por semana",
+    "commands": [{
+      "id": "09d155cf-06bc-412d-91db-4be66e9d9f6e",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.techinterviewhandbook.org/grind75?weeks=0&hours=0",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9591847f-ab3c-4163-aa8d-3fb381d73c88",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ebfecf31-e5c2-49f5-b480-bc358a3de625",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.mt-2",
+      "targets": [
+        ["css=.mt-2", "css:finder"],
+        ["xpath=//div[@id='__next']/main/div/div/div/div[2]/div[2]/div/div/h3", "xpath:idRelative"],
+        ["xpath=//h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'No questions to recommend')]", "xpath:innerText"]
+      ],
+      "value": "No questions to recommend"
+    }]
+  }],
+  "suites": [{
+    "id": "1aef89c4-a054-4a3c-a40d-ba0bf0d23cf8",
+    "name": "Website",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["47097c98-5aff-4013-9c1e-2401103a333c", "f17fff02-1968-464d-9cd1-2515754e9086", "eef9a515-c59c-43bd-9e3c-77e7ee12fa12", "5d81d44f-b0af-46e8-aced-d8a6963778ac", "8b21a733-74a1-4c99-96a3-e44e63a62211", "fc31816a-876d-47b5-9dad-32ae5b773abb", "31e235ab-c0bb-4191-911a-ab8b03bc1aa0"]
+  }, {
+    "id": "7f4c794a-9c6f-4812-896a-a86ba94c1172",
+    "name": "Grind75",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["b44da269-44a2-4a3b-9164-b4cc55337de1", "9a6cecf4-aebd-4c46-b0c9-dff295feb152", "02d01251-bf6e-422d-9415-f4bdb927bc82", "3e85508a-322e-4bca-b383-8b955c7227d8", "cbce5be7-996a-495b-a217-40c03f34db4c", "985f56c3-9ffd-4abc-8832-ec3cd7e5ec70", "8cbda80d-cd57-495c-8a07-e06335a579a3", "306fdeb0-53e9-45db-bc23-ed5f5f56db51", "59b3260a-d161-461d-b74e-c49bb570b3e8", "42cf42ab-bf81-4393-b303-55c87eba6bb2", "3ce9f5c0-acea-40ed-a38e-a4c795df7fbb", "04ed02e0-3f24-4b23-b1de-6fa332281433", "653d2b36-928e-48dd-8c18-cf1452577a7c"]
+  }],
+  "urls": ["https://www.techinterviewhandbook.org/", "https://www.techinterviewhandbook.org/grind75", "https://www.techinterviewhandbook.org/grind75?weeks=10", "https://www.techinterviewhandbook.org/grind75?weeks=16", "https://www.techinterviewhandbook.org/grind75?weeks=10&hours=10", "https://www.techinterviewhandbook.org/grind75?weeks=20&hours=4", "https://www.techinterviewhandbook.org/grind75?weeks=0&hours=0"],
+  "plugins": []
+}
