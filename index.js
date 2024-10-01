@@ -9,7 +9,10 @@ let server;
 // Realizar la conexión con la base de datos PostgreSQL
 const sequelize = require("./db");
 try {
-  sequelize.authenticate();
+  sequelize.authenticate().then(() => {
+    console.log("Conexión establecida con la base de datos");
+  });
+
   server = app.listen(port, () => {
     console.log(`Servidor ejecutándose correctamente en el puerto ${port}`);
   });
